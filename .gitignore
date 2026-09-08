@@ -1,0 +1,14 @@
+# Identidade visual — material de origem, apenas para consulta local.
+# Não vai para o Git nem para o deploy (Vercel).
+ARQUIVOS FINAIS ATELIÊ DO BRINCAR/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Dependências / build
+node_modules/
+dist/
+.vercel/
+.env
+.env.local

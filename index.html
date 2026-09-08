@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Ateliê do Brincar — em breve</title>
+<meta name="description" content="Creche e espaço de desenvolvimento da primeira infância, de 6 meses a 3 anos, em Ji-Paraná/RO. Nosso site está sendo preparado.">
+<meta name="theme-color" content="#752996">
+<link rel="icon" href="assets/icone.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/icone.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Ateliê do Brincar — em breve">
+<meta property="og:description" content="Creche e espaço de desenvolvimento da primeira infância, de 6 meses a 3 anos, em Ji-Paraná/RO.">
+<meta property="og:image" content="assets/logo-principal.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ATELIÊ DO BRINCAR — tokens do Manual de Identidade Visual
+   Cores institucionais (MIV, p. 24). Tipografia: Baloo Tammudu 2 (p. 26).
+   ============================================================ */
+:root{
+  --talco:#FCF7F3;      /* Branco Talco    — conforto, leveza, calma       */
+  --gema:#EDB500;       /* Amarelo Gema    — jovialidade, energia          */
+  --mecanica:#FE6428;   /* Laranja Mecânica— criatividade, movimento       */
+  --menta:#06BF96;      /* Verde Menta     — otimismo, frescor             */
+  --ceu:#00CCFF;        /* Azul Céu Vívido — confiança, equilíbrio         */
+  --baby:#FFB0C5;       /* Rosa Baby       — delicadeza, amizade           */
+  --magenta:#F95286;    /* Rosa Magenta    — doçura, brincadeira           */
+  --violeta:#752996;    /* Violeta Superior— elegância, espiritualidade    */
+
+  --bg:var(--talco);
+  --tinta:#3A3330;
+  --tinta-suave:#6B605B;
+  --titulo:var(--violeta);
+  --cartao:rgba(255,255,255,.72);
+  --borda:rgba(117,41,150,.14);
+  --sombra:0 24px 60px -28px rgba(117,41,150,.32);
+  --blob-op:.55;
+
+  --fonte:"Baloo Tammudu 2", "Trebuchet MS", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --raio:22px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#2E2A29;
+    --tinta:#EFE7E2;
+    --tinta-suave:#B9ABA5;
+    --titulo:#D9A8F0;
+    --cartao:rgba(255,255,255,.05);
+    --borda:rgba(255,255,255,.10);
+    --sombra:0 24px 60px -30px rgba(0,0,0,.6);
+    --blob-op:.4;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  background:var(--bg);
+  color:var(--tinta);
+  font-family:var(--fonte);
+  font-size:clamp(1rem,.95rem + .3vw,1.125rem);
+  line-height:1.6;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ---------- Fundo orgânico: linguagem de manchas do manual ---------- */
+.fundo{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:var(--blob-op);
+}
+.fundo svg{
+  position:absolute;
+  display:block;
+  will-change:transform;
+}
+.b1{top:-18vmin;right:-14vmin;width:62vmin;animation:flutuar1 22s ease-in-out infinite}
+.b2{bottom:-46vmin;left:-30vmin;width:66vmin;animation:flutuar2 27s ease-in-out infinite}
+.b3{top:32%;left:-12vmin;width:34vmin;animation:flutuar1 19s ease-in-out infinite reverse}
+.b4{bottom:12%;right:-8vmin;width:30vmin;animation:flutuar2 24s ease-in-out infinite reverse}
+
+@keyframes flutuar1{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg)}
+  50%{transform:translate3d(-2.2vmin,2.6vmin,0) rotate(5deg)}
+}
+@keyframes flutuar2{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg)}
+  50%{transform:translate3d(2.4vmin,-2.2vmin,0) rotate(-4deg)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fundo svg{animation:none}
+}
+
+/* ---------- Conteúdo ---------- */
+.palco{
+  position:relative;
+  z-index:1;
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(1.5rem,5vw,3rem) clamp(1.25rem,5vw,2rem);
+}
+
+.cartao{
+  width:min(56rem,100%);
+  text-align:center;
+  background:var(--cartao);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  border:1px solid var(--borda);
+  border-radius:calc(var(--raio) * 1.6);
+  box-shadow:var(--sombra);
+  padding:clamp(2rem,6vw,4rem) clamp(1.5rem,5vw,4rem);
+}
+
+.marca{
+  width:min(26rem,82%);
+  height:auto;
+  margin-inline:auto;
+  display:block;
+}
+.marca--escuro{display:none}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .marca--claro{display:none}
+  :root:not([data-theme="light"]) .marca--escuro{display:block}
+}
+
+.selo{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  margin:clamp(1.75rem,4vw,2.5rem) 0 1rem;
+  padding:.4rem 1.1rem .45rem;
+  border-radius:999px;
+  background:rgba(6,191,150,.14);
+  border:1px solid rgba(6,191,150,.32);
+  color:#04785F;
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .selo{color:#5FE0C1;background:rgba(6,191,150,.16)}
+}
+.pulso{
+  width:.5rem;height:.5rem;border-radius:50%;
+  background:var(--menta);
+  box-shadow:0 0 0 0 rgba(6,191,150,.65);
+  animation:pulsar 2.4s ease-out infinite;
+}
+@keyframes pulsar{
+  0%{box-shadow:0 0 0 0 rgba(6,191,150,.6)}
+  70%{box-shadow:0 0 0 .55rem rgba(6,191,150,0)}
+  100%{box-shadow:0 0 0 0 rgba(6,191,150,0)}
+}
+@media (prefers-reduced-motion:reduce){ .pulso{animation:none} }
+
+h1{
+  margin:0 0 1rem;
+  font-size:clamp(1.9rem,1.2rem + 3.4vw,3.4rem);
+  line-height:1.12;
+  font-weight:800;
+  color:var(--titulo);
+  letter-spacing:-.01em;
+  text-wrap:balance;
+}
+h1 em{
+  font-style:normal;
+  color:var(--mecanica);
+}
+
+.chamada{
+  margin:0 auto;
+  max-width:40rem;
+  color:var(--tinta-suave);
+  text-wrap:pretty;
+}
+.chamada + .chamada{margin-top:.85rem}
+
+.proposito{
+  margin:clamp(2rem,5vw,2.75rem) auto 0;
+  max-width:34rem;
+  padding-top:clamp(1.5rem,4vw,2rem);
+  border-top:1px solid var(--borda);
+  font-size:clamp(1rem,.95rem + .35vw,1.2rem);
+  font-weight:600;
+  color:var(--titulo);
+  text-wrap:balance;
+}
+
+/* ---------- Ações ---------- */
+.acoes{
+  margin-top:clamp(1.75rem,4vw,2.25rem);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.75rem;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.8rem 1.4rem;
+  border-radius:999px;
+  font:inherit;
+  font-weight:700;
+  font-size:.98rem;
+  text-decoration:none;
+  border:1.5px solid transparent;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+
+.btn--principal{
+  background:var(--menta);
+  color:#04372C;
+  box-shadow:0 10px 24px -12px rgba(6,191,150,.9);
+}
+.btn--secundario{
+  background:transparent;
+  border-color:var(--violeta);
+  color:var(--titulo);
+}
+.btn--terciario{
+  background:transparent;
+  border-color:var(--borda);
+  color:var(--tinta-suave);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--principal:hover{box-shadow:0 16px 30px -12px rgba(6,191,150,1)}
+.btn--secundario:hover{background:rgba(117,41,150,.08)}
+.btn--terciario:hover{border-color:var(--magenta);color:var(--magenta)}
+.btn:focus-visible{
+  outline:3px solid var(--ceu);
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){ .btn:hover{transform:none} }
+
+/* ---------- Rodapé ---------- */
+.rodape{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:0 1.5rem clamp(2rem,5vw,3rem);
+  color:var(--tinta-suave);
+  font-size:.9rem;
+  line-height:1.7;
+}
+.rodape p{margin:0}
+.rodape a{color:inherit;text-decoration-color:var(--borda);text-underline-offset:3px}
+.rodape a:hover{color:var(--magenta)}
+.rodape .assinatura{margin-top:.6rem;font-size:.82rem;opacity:.8}
+
+/* Régua institucional de 8 cores — assinatura gráfica do manual */
+.regua{
+  position:relative;
+  z-index:1;
+  display:flex;
+  height:5px;
+  width:100%;
+}
+.regua span{flex:1}
+
+@media (max-width:26rem){
+  .acoes{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Manchas orgânicas nas cores institucionais -->
+<div class="fundo" aria-hidden="true">
+  <svg class="b1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#FFB0C5" d="M44.6,-63.9C56.7,-55.6,64.3,-40.7,69.7,-25.2C75,-9.7,78.1,6.4,73.6,20.2C69.1,34,57,45.6,43.6,55.4C30.2,65.2,15.1,73.2,-0.9,74.4C-16.9,75.7,-33.7,70.1,-46.9,60.1C-60.1,50.1,-69.6,35.7,-73.6,19.9C-77.6,4.2,-76.1,-12.9,-69.4,-27.3C-62.7,-41.7,-50.8,-53.4,-37.6,-61.4C-24.4,-69.4,-10,-73.7,3.7,-78.8C17.4,-83.9,32.5,-72.3,44.6,-63.9Z" transform="translate(100 100)"/>
+  </svg>
+  <svg class="b2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#752996" d="M39.8,-58.1C52.4,-50.9,63.7,-40.9,70.2,-28.1C76.6,-15.4,78.2,0.1,73.9,13.7C69.6,27.4,59.4,39.1,47.5,49.4C35.6,59.7,22,68.5,6.6,71.5C-8.8,74.5,-26,71.6,-40.4,63.4C-54.8,55.2,-66.4,41.7,-71.9,26.3C-77.4,10.9,-76.8,-6.4,-71.2,-21.5C-65.6,-36.6,-55,-49.5,-41.9,-57C-28.7,-64.5,-13.1,-66.6,0.9,-67.9C15,-69.2,27.2,-65.3,39.8,-58.1Z" transform="translate(100 100)"/>
+  </svg>
+  <svg class="b3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#EDB500" d="M31.9,-46.7C41.1,-39.7,48,-30.1,55.3,-18.6C62.5,-7.1,70.1,6.4,68.2,18.6C66.3,30.9,54.9,41.9,42.5,49.8C30.1,57.7,16.7,62.5,2.1,64.9C-12.6,67.3,-28.4,67.3,-40.6,60.2C-52.7,53.1,-61.2,38.9,-65.8,23.9C-70.4,8.9,-71.1,-6.9,-66.2,-20.4C-61.3,-33.9,-50.8,-45.1,-38.6,-51.8C-26.4,-58.5,-12.6,-60.7,-0.6,-59.9C11.4,-59.1,22.8,-53.6,31.9,-46.7Z" transform="translate(100 100)"/>
+  </svg>
+  <svg class="b4" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#00CCFF" d="M35.6,-52.5C45.1,-44.2,51,-32.4,57.2,-19.6C63.4,-6.8,69.9,7,67.5,19.2C65.1,31.4,53.8,42,41.5,50.3C29.2,58.6,15.9,64.6,1.2,63C-13.5,61.3,-29.6,52,-42.6,40.3C-55.6,28.6,-65.5,14.3,-67.4,-1.1C-69.3,-16.5,-63.3,-33,-52.3,-42.9C-41.3,-52.8,-25.3,-56.1,-10.6,-56.7C4.1,-57.3,26.1,-60.8,35.6,-52.5Z" transform="translate(100 100)"/>
+  </svg>
+</div>
+
+<main class="palco">
+  <div class="cartao">
+
+    <img class="marca marca--claro" src="assets/logo-principal.png"
+         alt="Ateliê do Brincar" width="2217" height="927" fetchpriority="high">
+    <img class="marca marca--escuro" src="assets/logo-branco.png"
+         alt="Ateliê do Brincar" width="1682" height="703">
+
+    <p class="selo"><span class="pulso" aria-hidden="true"></span> Site em construção</p>
+
+    <h1>Estamos preparando um lugar <em>para brincar</em> por aqui também.</h1>
+
+    <p class="chamada">
+      Nosso site novo está sendo construído com o mesmo cuidado que temos com cada
+      criança do ateliê. Enquanto ele não fica pronto, a conversa continua — fale
+      com a gente pelos canais de sempre.
+    </p>
+
+    <div class="acoes">
+      <a class="btn btn--principal" href="https://wa.me/556934222382"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.08c-.24.68-1.42 1.31-1.96 1.35-.5.05-1.14.07-1.84-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.43-.14-.2-1.19-1.58-1.19-3.02 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.78-.36h.56c.18 0 .42-.07.66.5.24.59.83 2.02.9 2.17.07.14.12.31.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.14.14-.29.3-.13.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.45.12.62-.07.17-.2.71-.83.9-1.11.19-.29.38-.24.64-.14.26.09 1.68.79 1.97.94.29.14.48.22.55.34.07.12.07.7-.17 1.38Z"/></svg>
+        WhatsApp
+      </a>
+
+      <a class="btn btn--secundario" href="https://instagram.com/ateliedobrincaroficial"
+         target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.98c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.64 3.64 0 0 0-.88-1.35 3.64 3.64 0 0 0-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07Zm0 3.37a4.49 4.49 0 1 1 0 8.98 4.49 4.49 0 0 1 0-8.98Zm0 7.4a2.91 2.91 0 1 0 0-5.82 2.91 2.91 0 0 0 0 5.82Zm5.72-7.6a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0Z"/></svg>
+        @ateliedobrincaroficial
+      </a>
+
+      <a class="btn btn--terciario" href="mailto:ateliedobrincaroficial@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 7 8.4 5.6a1 1 0 0 0 1.2 0L21 7"/></svg>
+        E-mail
+      </a>
+    </div>
+
+    <p class="proposito">
+      Contribuir no desenvolvimento humano, na primeira infância,
+      para construir uma sociedade feliz e equilibrada.
+    </p>
+
+  </div>
+</main>
+
+<footer class="rodape">
+  <p>
+    Rua Izaias de Miranda, 64 — Bairro Urupá · CEP 76.900-200 · Ji-Paraná/RO
+    · <a href="tel:+556934222382">(69) 3422-2382</a>
+  </p>
+  <p class="assinatura">© <span id="ano">2026</span> Ateliê do Brincar · Desenvolvimento infantil na primeira infância</p>
+</footer>
+
+<div class="regua" aria-hidden="true">
+  <span style="background:#FCF7F3"></span>
+  <span style="background:#EDB500"></span>
+  <span style="background:#FE6428"></span>
+  <span style="background:#06BF96"></span>
+  <span style="background:#00CCFF"></span>
+  <span style="background:#FFB0C5"></span>
+  <span style="background:#F95286"></span>
+  <span style="background:#752996"></span>
+</div>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
