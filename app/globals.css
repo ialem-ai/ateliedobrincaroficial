@@ -1,0 +1,288 @@
+@import 'tailwindcss';
+
+/*
+ * Ateliê do Brincar · direção "Livro de histórias"
+ *
+ * Cores do Manual de Identidade Visual (p. 24), fonte Baloo Tammudu 2 (p. 26).
+ * Papel Branco Talco, violeta nos títulos, e UMA cor da marca chapada por bloco,
+ * como adesivo. Sem sombra, sem degradê, sem vidro.
+ *
+ * Contraste (WCAG) medido:
+ *   violeta sobre talco ........ 7,85  títulos e links
+ *   tinta sobre talco .......... 15,6  corpo
+ *   tinta sobre gema/céu/baby .. 8,7+  texto em bloco claro
+ *   tinta sobre menta .......... 7,0
+ *   tinta sobre mecânica ....... 5,6   só texto grande
+ *   branco sobre violeta ....... 8,35  bloco violeta
+ *   branco sobre menta/magenta . FALHA, nunca usar
+ */
+@theme {
+  --color-talco: #fcf7f3;
+  --color-gema: #edb500;
+  --color-mecanica: #fe6428;
+  --color-menta: #06bf96;
+  --color-ceu: #00ccff;
+  --color-baby: #ffb0c5;
+  --color-magenta: #f95286;
+  --color-violeta: #752996;
+
+  /* Papéis */
+  --color-bg: var(--color-talco);
+  --color-surface: #ffffff;
+  --color-ink: #2a1733; /* violeta quase preto: corpo e texto sobre cor clara */
+  --color-ink-soft: #5e4d66;
+  --color-title: var(--color-violeta);
+  --color-accent: var(--color-violeta);
+  --color-accent-hover: #5e1f7a;
+  --color-rule: #eadfd8;
+
+  /* Raio: botão pílula, card arredondado, mídia em mancha (ver .mancha) */
+  --radius-btn: 999px;
+  --radius-card: 28px;
+  --radius-media: 36px;
+
+  --font-display: var(--font-baloo), 'Trebuchet MS', system-ui, sans-serif;
+  --font-body: var(--font-baloo), 'Trebuchet MS', system-ui, sans-serif;
+
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-accordion-down: accordion-down 0.25s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: var(--color-gema);
+    color: var(--color-ink);
+  }
+
+  /*
+   * Baloo Tammudu 2 é uma fonte télugo com latim: as métricas verticais são
+   * altas (ascender de script índico). Por isso line-height um pouco maior
+   * que o padrão da casa nos títulos, senão as linhas encostam.
+   */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--color-title);
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-violeta);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* Escala tipográfica fixa (design-direction.md § 3) */
+@utility text-display {
+  font-size: clamp(2.6rem, 7.4vw, 5.6rem);
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+@utility text-h1 {
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+@utility text-h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+}
+@utility text-label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/*
+ * Mancha: a forma orgânica do manual aplicada como recorte de foto e como
+ * chapa de cor. Borda reta (nada de blur), igual às manchas dentro das letras
+ * do logo.
+ */
+.mancha-1 {
+  border-radius: 62% 38% 55% 45% / 48% 58% 42% 52%;
+}
+.mancha-2 {
+  border-radius: 42% 58% 38% 62% / 55% 40% 60% 45%;
+}
+.mancha-3 {
+  border-radius: 55% 45% 62% 38% / 40% 55% 45% 60%;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/*
+ * Onda de cor em faixas (efeito "gradient wave" do spell.sh, reescrito em CSS).
+ * As faixas têm borda reta, como as manchas do logo: cada cor começa onde a
+ * anterior termina, então não existe degradê entre cores diferentes.
+ * Roda UMA vez e para na cor de base.
+ */
+@property --onda {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: -60;
+}
+
+@keyframes onda {
+  from {
+    --onda: -60;
+  }
+  to {
+    --onda: 160;
+  }
+}
+
+.onda-faixas {
+  --base: var(--color-violeta);
+  background-image: linear-gradient(
+    100deg,
+    var(--base) calc((var(--onda) + 0) * 1%),
+    var(--color-menta) calc((var(--onda) + 0) * 1%),
+    var(--color-menta) calc((var(--onda) + 8) * 1%),
+    var(--color-gema) calc((var(--onda) + 8) * 1%),
+    var(--color-gema) calc((var(--onda) + 16) * 1%),
+    var(--color-mecanica) calc((var(--onda) + 16) * 1%),
+    var(--color-mecanica) calc((var(--onda) + 24) * 1%),
+    var(--color-magenta) calc((var(--onda) + 24) * 1%),
+    var(--color-magenta) calc((var(--onda) + 32) * 1%),
+    var(--color-ceu) calc((var(--onda) + 32) * 1%),
+    var(--color-ceu) calc((var(--onda) + 40) * 1%),
+    var(--base) calc((var(--onda) + 40) * 1%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* o recorte só pinta dentro da caixa: folga pras hastes altas da Baloo */
+  padding-block: 0.2em;
+  margin-block: -0.2em;
+  /* a onda vai da direita pra esquerda: começa com --onda alto */
+  --onda: 160;
+}
+.onda-faixas[data-play='true'] {
+  animation: onda 2.4s var(--ease-brand) 1 both reverse;
+}
+
+/* Brilho do selo "em breve" (shimmer do spell.sh). 3 passadas e para: < 5s. */
+@keyframes brilho {
+  from {
+    background-position: 180% 0;
+  }
+  to {
+    background-position: -80% 0;
+  }
+}
+.brilho {
+  background-image: linear-gradient(
+    100deg,
+    currentColor 0%,
+    currentColor 40%,
+    rgb(255 255 255 / 0.85) 50%,
+    currentColor 60%,
+    currentColor 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brilho 1.4s linear 0.6s 3 both;
+}
+
+/* Manchas flutuando no bloco de agendamento. Tem botão de pausa (LBI/NBR 17225). */
+@keyframes flutua-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-4%, 6%, 0) rotate(8deg);
+  }
+}
+@keyframes flutua-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(5%, -4%, 0) rotate(-6deg);
+  }
+}
+.flutua-a {
+  animation: flutua-a 16s ease-in-out infinite;
+}
+.flutua-b {
+  animation: flutua-b 21s ease-in-out infinite;
+}
+[data-paused='true'] .flutua-a,
+[data-paused='true'] .flutua-b,
+[data-paused='true'] .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Acessibilidade não é opcional.
+   biome-ignore-all lint/complexity/noImportantStyles: reset padrão de
+   prefers-reduced-motion. Precisa vencer qualquer animação declarada depois. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

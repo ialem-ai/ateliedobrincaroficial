@@ -1,0 +1,74 @@
+/**
+ * Configuração central do site do Ateliê do Brincar.
+ *
+ * Fontes dos dados (21/09/2026):
+ *  - Posicionamento, persona, produtos: ficha do cliente no Ops (client_profiles)
+ *  - Endereço novo e datas: grupo "Improve & Ateliê - Mudança & Inauguração"
+ *    (Ana Flávia, 10/09) e aviso do Ateliê no grupo de pais (15 e 16/09)
+ *  - Turmas e faixas: Ateliê no grupo principal, 10/06/2026
+ *  - Razão social e CNPJ: registro do domínio no Registro.br
+ */
+
+export const site = {
+  name: 'Ateliê do Brincar',
+  legalName: 'Ateliê do Brincar Ltda',
+  cnpj: '27.902.614/0001-15',
+  title: 'Ateliê do Brincar · Desenvolvimento infantil em Ji-Paraná',
+  description:
+    'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná/RO. Brincar livre, ambientes por atividade, horta e muito tempo ao ar livre.',
+
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.ateliedobrincaroficial.com.br',
+  lpPath: '/visita',
+  linksPath: '/links',
+
+  /** Direção escolhida em 21/09: "Livro de histórias" (derivada do D3 bloco cromático). */
+  theme: 'livro-de-historias',
+
+  ageRange: '6 meses a 3 anos',
+
+  cta: {
+    primary: 'Agendar uma visita',
+    note: 'A equipe do Ateliê responde pelo WhatsApp e combina o melhor horário.',
+  },
+
+  /** (69) 3422-2382: WhatsApp Business no fixo do Ateliê. 55 + DDD + número. */
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '556934222382',
+  phone: '(69) 3422-2382',
+  phoneHref: 'tel:+556934222382',
+  email: 'ateliedobrincaroficial@gmail.com',
+
+  address: {
+    street: 'Rua Mato Grosso, 1928',
+    district: 'Casa Preta',
+    city: 'Ji‑Paraná',
+    state: 'RO',
+    zip: '76907-616',
+  },
+  mapsUrl:
+    'https://www.google.com/maps/search/?api=1&query=Rua+Mato+Grosso%2C+1928%2C+Casa+Preta%2C+Ji-Paran%C3%A1+-+RO%2C+76907-616',
+
+  /** Nova unidade. Datas do aviso oficial às famílias (16/09). */
+  mudanca: {
+    abreEm: '2026-10-05',
+    abreEmTexto: '5 de outubro',
+    reinauguracao: '2026-10-10',
+    reinauguracaoTexto: '10 de outubro',
+  },
+
+  /** [A_DEFINIR] horário da nova unidade. Não aparece em nenhuma mensagem. */
+  hours: null as null | string,
+
+  social: {
+    instagram: 'https://www.instagram.com/ateliedobrincaroficial/',
+    instagramHandle: '@ateliedobrincaroficial',
+    googleBusiness: '',
+  },
+
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID || '',
+  gaId: process.env.NEXT_PUBLIC_GA_ID || '',
+} as const
+
+export const wa = (text?: string) =>
+  `https://wa.me/${site.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ''}`
+
+export const addressLine = `${site.address.street} · ${site.address.district} · ${site.address.city}/${site.address.state}`
