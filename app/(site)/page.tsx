@@ -3,15 +3,19 @@ import { Agendar } from '@/components/atelie/agendar'
 import { Brinquedos } from '@/components/atelie/brinquedos'
 import { Declaracao } from '@/components/atelie/declaracao'
 import { Hero } from '@/components/atelie/hero'
+import { Manutencao } from '@/components/atelie/manutencao'
 import { NovoEspaco } from '@/components/atelie/novo-espaco'
 import { Palavras } from '@/components/atelie/palavras'
 import { PropostaLista } from '@/components/atelie/proposta-lista'
 import { Rotina } from '@/components/atelie/rotina'
 import { TurmasFicha } from '@/components/atelie/turmas-ficha'
+import { site } from '@/config/site'
 import { home } from '@/lib/content/copy'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
+  // a página de manutenção não deve aparecer no Google
+  ...(site.manutencao ? { robots: { index: false, follow: true } } : {}),
 }
 
 /*
@@ -27,6 +31,8 @@ export const metadata: Metadata = {
  * 09 visita        E17  bloco violeta com formulário
  */
 export default function HomePage() {
+  if (site.manutencao) return <Manutencao />
+
   return (
     <>
       <Hero />

@@ -16,7 +16,7 @@ export function TurmasFicha({
   comLink?: boolean
 }) {
   return (
-    <section className="py-14 md:py-20">
+    <section id="turmas" className="scroll-mt-8 py-14 md:py-20">
       <Container>
         <div className="rounded-[var(--radius-card)] bg-[var(--color-baby)] px-6 py-10 md:px-14 md:py-14">
           <SlideUp className="text-h2 text-[var(--color-ink)]">{titulo}</SlideUp>

@@ -35,14 +35,14 @@ const LINKS = [
   },
   {
     ...proposta,
-    href: '/proposta',
+    href: site.manutencao ? '/visita' : '/proposta',
     foto: '/fotos/minhocario.jpg',
     pos: '50% 60%',
     cor: 'var(--color-baby)',
   },
   {
     ...turmas,
-    href: '/turmas',
+    href: site.manutencao ? '/visita#turmas' : '/turmas',
     foto: '/fotos/boliche.jpg',
     pos: '50% 55%',
     cor: 'var(--color-magenta)',
