@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Fragment } from 'react'
 import { Olhinhos, SeloGirando } from '@/components/atelie/marca'
 import { BlurReveal } from '@/components/effects/blur-reveal'
 import { ButtonLink } from '@/components/ui/button'
@@ -16,11 +17,15 @@ export function LpHero() {
   return (
     <section className="relative overflow-hidden">
       <p className="bg-[var(--color-violeta)] px-4 py-3 text-center font-bold text-sm text-white md:text-base">
+        {/* o espaço entre os trechos fica FORA do nowrap, senão a linha não quebra */}
         {c.chamada.split(' com ').map((parte, i) => (
-          <span key={parte} className="whitespace-nowrap">
-            {i > 0 ? ' com ' : null}
-            {parte}
-          </span>
+          <Fragment key={parte}>
+            {i > 0 ? ' ' : null}
+            <span className="whitespace-nowrap">
+              {i > 0 ? 'com ' : null}
+              {parte}
+            </span>
+          </Fragment>
         ))}
       </p>
       <Container className="grid items-center gap-10 pt-8 pb-16 md:grid-cols-12 md:gap-8 md:pt-12 md:pb-24">

@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { Fragment } from 'react'
 import { Olhinhos, SeloGirando } from '@/components/atelie/marca'
 import { BlurReveal } from '@/components/effects/blur-reveal'
 import { ButtonLink } from '@/components/ui/button'
@@ -45,10 +46,10 @@ export function Hero({
           </p>
           <p className="text-label mb-4 text-[var(--color-ink-soft)]">
             {rotulo.split(' · ').map((parte, i) => (
-              <span key={parte} className="whitespace-nowrap">
+              <Fragment key={parte}>
                 {i > 0 ? ' · ' : null}
-                {parte}
-              </span>
+                <span className="whitespace-nowrap">{parte}</span>
+              </Fragment>
             ))}
           </p>
           <BlurReveal
