@@ -43,7 +43,14 @@ export function Hero({
             <span aria-hidden className="size-2 rounded-full bg-[var(--color-ink)]" />
             {selo}
           </p>
-          <p className="text-label mb-4 text-[var(--color-ink-soft)]">{rotulo}</p>
+          <p className="text-label mb-4 text-[var(--color-ink-soft)]">
+            {rotulo.split(' · ').map((parte, i) => (
+              <span key={parte} className="whitespace-nowrap">
+                {i > 0 ? ' · ' : null}
+                {parte}
+              </span>
+            ))}
+          </p>
           <BlurReveal
             texto={titulo}
             onda={tituloOnda}

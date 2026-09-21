@@ -22,7 +22,7 @@
 
 export const home = {
   hero: {
-    rotulo: 'Desenvolvimento infantil · 6\u00a0meses a 3\u00a0anos',
+    rotulo: 'Desenvolvimento infantil · 6 meses a 3 anos',
     // a última palavra ganha a onda de cores do logo
     titulo: ['Tinta na mão, pé na terra e muito'],
     tituloOnda: 'brincar.',
@@ -273,15 +273,20 @@ export const lp = {
 
 export const links = {
   frase: 'Crianças de 6 meses a 3 anos em Ji‑Paraná. Tinta, terra e muito brincar.',
+  // ordem pedida pelo Murillo (21/09)
   itens: [
     {
-      titulo: 'Agendar uma visita',
-      texto: 'Chame a gente no WhatsApp e marque um horário.',
+      titulo: 'Fale com a gente',
+      texto: 'Tire dúvidas e agende uma visita.',
       acao: 'Chamar no WhatsApp',
     },
+    {
+      titulo: 'Nosso site',
+      texto: 'A proposta, as turmas e a rotina do Ateliê.',
+      acao: 'Abrir o site',
+    },
+    { titulo: 'Instagram', texto: 'O dia a dia das turmas e os projetos do mês.', acao: 'Seguir' },
     { titulo: 'Como chegar', texto: 'Rua Mato Grosso, 1928 · Casa Preta.', acao: 'Abrir no mapa' },
-    { titulo: 'A proposta', texto: 'Como funciona o dia no Ateliê.', acao: 'Ler no site' },
-    { titulo: 'Turmas', texto: 'Berçário, Maternal I e Maternal II.', acao: 'Ver as turmas' },
   ],
 } as const
 

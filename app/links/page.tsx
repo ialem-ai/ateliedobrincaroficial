@@ -16,15 +16,30 @@ export const metadata: Metadata = {
   alternates: { canonical: '/links' },
 }
 
-const [visita, endereco, proposta, turmas] = links.itens
+const [fale, nossoSite, instagram, endereco] = links.itens
 
 const LINKS = [
   {
-    ...visita,
+    ...fale,
     href: wa(waTexto.links),
     foto: '/fotos/tinta-azul.jpg',
     pos: '50% 30%',
     cor: 'var(--color-gema)',
+  },
+  {
+    ...nossoSite,
+    // institucional em manutenção: o "site" que está no ar é a página da visita
+    href: site.manutencao ? '/visita' : '/',
+    foto: '/fotos/minhocario.jpg',
+    pos: '50% 60%',
+    cor: 'var(--color-baby)',
+  },
+  {
+    ...instagram,
+    href: site.social.instagram,
+    foto: '/fotos/boliche.jpg',
+    pos: '50% 55%',
+    cor: 'var(--color-magenta)',
   },
   {
     ...endereco,
@@ -32,20 +47,6 @@ const LINKS = [
     foto: '/fotos/novo-espaco.jpg',
     pos: '60% 50%',
     cor: 'var(--color-ceu)',
-  },
-  {
-    ...proposta,
-    href: site.manutencao ? '/visita' : '/proposta',
-    foto: '/fotos/minhocario.jpg',
-    pos: '50% 60%',
-    cor: 'var(--color-baby)',
-  },
-  {
-    ...turmas,
-    href: site.manutencao ? '/visita#turmas' : '/turmas',
-    foto: '/fotos/boliche.jpg',
-    pos: '50% 55%',
-    cor: 'var(--color-magenta)',
   },
 ]
 
