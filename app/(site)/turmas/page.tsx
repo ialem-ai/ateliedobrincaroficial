@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Reveal } from '@/components/animations/reveal'
 import { Agendar } from '@/components/atelie/agendar'
+import { BlurReveal } from '@/components/effects/blur-reveal'
 import { Container } from '@/components/ui/container'
 import { cn } from '@/lib/cn'
 import { turmas } from '@/lib/content/copy'
@@ -101,7 +102,13 @@ export default function TurmasPage() {
                 >
                   {t.faixa}
                 </p>
-                <h2 className="text-h1 mt-4">{t.nome}</h2>
+                <BlurReveal
+                  as="h2"
+                  inView
+                  texto={t.nome}
+                  stagger={0.05}
+                  className="text-display mt-4"
+                />
                 <p className="mt-4 max-w-[44ch] text-lg md:text-xl">{t.texto}</p>
               </Reveal>
             </Container>

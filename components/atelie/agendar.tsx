@@ -1,5 +1,6 @@
+import { Olhinhos } from '@/components/atelie/marca'
 import { VisitaForm } from '@/components/atelie/visita-form'
-import { ManchasVivas } from '@/components/effects/manchas-vivas'
+import { FundoGradiente } from '@/components/effects/fundo-gradiente'
 import { SlideUp } from '@/components/effects/slide-up'
 import { Container } from '@/components/ui/container'
 import { addressLine, site, wa } from '@/config/site'
@@ -17,9 +18,10 @@ export function Agendar({
 }) {
   return (
     <section id="visita" className="scroll-mt-24 px-3 py-3 md:px-6 md:py-6">
-      <ManchasVivas className="rounded-[var(--radius-card)] bg-[var(--color-violeta)] pt-16 pb-24 text-white md:pt-24 md:pb-28">
+      <FundoGradiente className="rounded-[var(--radius-card)] pt-16 pb-24 text-white md:pt-24 md:pb-28">
         <Container className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-5">
+          <div className="relative md:col-span-5">
+            <Olhinhos className="-top-12 absolute left-0 w-14 md:-top-16 md:w-20" />
             <SlideUp className="text-h1 max-w-[12ch] text-white">{titulo}</SlideUp>
             <p className="mt-5 max-w-[36ch] text-lg text-white/90">{texto}</p>
             <div className="mt-8 text-white/90">
@@ -40,7 +42,7 @@ export function Agendar({
             <VisitaForm origem={origem} />
           </div>
         </Container>
-      </ManchasVivas>
+      </FundoGradiente>
     </section>
   )
 }

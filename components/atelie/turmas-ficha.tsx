@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Brilho } from '@/components/effects/brilho'
 import { SlideUp } from '@/components/effects/slide-up'
 import { Container } from '@/components/ui/container'
 
@@ -33,7 +34,7 @@ export function TurmasFicha({
                   className="mb-1.5 hidden min-w-6 flex-1 border-[var(--color-ink)]/40 border-b-2 border-dotted sm:block"
                 />
                 <dd className="font-bold sm:text-right text-[var(--color-ink)] md:text-lg">
-                  {t.faixa}
+                  <Brilho>{t.faixa}</Brilho>
                 </dd>
               </div>
             ))}

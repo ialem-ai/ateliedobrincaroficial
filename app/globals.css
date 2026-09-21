@@ -216,62 +216,58 @@
 .onda-faixas[data-play='true'] {
   animation: onda 2.4s var(--ease-brand) 1 both reverse;
 }
+/* versão do topo: a onda passa, descansa e volta a cada 6s. Tem pausa. */
+@keyframes onda-loop {
+  0% {
+    --onda: 160;
+  }
+  40%,
+  100% {
+    --onda: -60;
+  }
+}
+.onda-faixas[data-play='loop'] {
+  animation: onda-loop 6s var(--ease-brand) infinite both;
+}
+[data-paused='true'] .onda-faixas {
+  animation-play-state: paused;
+}
 
 /* Brilho do selo "em breve" (shimmer do spell.sh). 3 passadas e para: < 5s. */
 @keyframes brilho {
   from {
-    background-position: 180% 0;
+    background-position:
+      180% 0,
+      0 0;
   }
   to {
-    background-position: -80% 0;
+    background-position:
+      -80% 0,
+      0 0;
   }
 }
+/* duas camadas: o reflexo (sem repetir) por cima da cor chapada do texto,
+   pra que parado ele nunca apague letra nenhuma */
 .brilho {
-  background-image: linear-gradient(
-    100deg,
-    currentColor 0%,
-    currentColor 40%,
-    rgb(255 255 255 / 0.85) 50%,
-    currentColor 60%,
-    currentColor 100%
-  );
-  background-size: 250% 100%;
+  background-image:
+    linear-gradient(100deg, transparent 40%, rgb(255 255 255 / 0.85) 50%, transparent 60%),
+    linear-gradient(currentColor, currentColor);
+  background-size:
+    250% 100%,
+    100% 100%;
+  background-repeat: no-repeat;
+  background-position:
+    180% 0,
+    0 0;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: brilho 1.4s linear 0.6s 3 both;
+}
+.brilho[data-play='true'] {
+  animation: brilho 1.4s linear 0.3s 3 both;
 }
 
-/* Manchas flutuando no bloco de agendamento. Tem botão de pausa (LBI/NBR 17225). */
-@keyframes flutua-a {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(-4%, 6%, 0) rotate(8deg);
-  }
-}
-@keyframes flutua-b {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(5%, -4%, 0) rotate(-6deg);
-  }
-}
-.flutua-a {
-  animation: flutua-a 16s ease-in-out infinite;
-}
-.flutua-b {
-  animation: flutua-b 21s ease-in-out infinite;
-}
-[data-paused='true'] .flutua-a,
-[data-paused='true'] .flutua-b,
-[data-paused='true'] .marquee-track {
-  animation-play-state: paused;
-}
+/* Selo girando com a rolagem e olhinhos: ver components/atelie/marca.tsx */
 
 /* Acessibilidade não é opcional.
    biome-ignore-all lint/complexity/noImportantStyles: reset padrão de

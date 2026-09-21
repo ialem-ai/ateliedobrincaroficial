@@ -11,10 +11,16 @@ export function Onda({
   children,
   className,
   delay = 0,
+  loop = false,
+  base,
 }: {
   children: string
   className?: string
   delay?: number
+  /** repete a cada 6s (o pai precisa oferecer pausa: data-paused) */
+  loop?: boolean
+  /** cor do texto parado (padrão violeta). Em fundo violeta, use branco. */
+  base?: string
 }) {
   const ref = useRef<HTMLSpanElement>(null)
   const [play, setPlay] = useState(false)
@@ -38,9 +44,9 @@ export function Onda({
   return (
     <span
       ref={ref}
-      data-play={play}
+      data-play={play ? (loop ? 'loop' : 'true') : 'false'}
       className={cn('onda-faixas inline-block', className)}
-      style={{ animationDelay: `${delay}s` }}
+      style={{ animationDelay: `${delay}s`, ...(base ? { ['--base' as string]: base } : {}) }}
     >
       {children}
     </span>

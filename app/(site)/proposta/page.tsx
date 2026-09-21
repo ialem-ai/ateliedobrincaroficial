@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Reveal } from '@/components/animations/reveal'
 import { Agendar } from '@/components/atelie/agendar'
+import { SeloGirando } from '@/components/atelie/marca'
+import { Onda } from '@/components/effects/onda'
 import { SlideUp } from '@/components/effects/slide-up'
 import { Container } from '@/components/ui/container'
 import { proposta } from '@/lib/content/copy'
@@ -69,10 +71,12 @@ export default function PropostaPage() {
             ))}
           </div>
         </Container>
-        <div className="mt-16 bg-[var(--color-menta)] py-16 md:mt-24 md:py-24">
+        <div className="mt-16 bg-[var(--color-violeta)] py-20 md:mt-24 md:py-32">
           <Container>
-            <p className="mx-auto max-w-[18ch] text-center font-extrabold text-[clamp(2rem,5vw,4rem)] text-[var(--color-ink)] leading-[1.02] tracking-[-0.03em]">
-              {proposta.destaque}
+            <p className="mx-auto max-w-[16ch] text-center font-extrabold text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.02] tracking-[-0.03em]">
+              <Onda base="#ffffff" className="[text-wrap:balance]">
+                {proposta.destaque}
+              </Onda>
             </p>
           </Container>
         </div>
@@ -109,6 +113,12 @@ export default function PropostaPage() {
                   </div>
                 </Reveal>
               ))}
+              <li
+                aria-hidden="true"
+                className="hidden place-items-center rounded-[var(--radius-card)] bg-[var(--color-violeta)] p-6 sm:grid"
+              >
+                <SeloGirando className="w-28 brightness-0 invert md:w-32" />
+              </li>
             </ul>
           </div>
         </Container>

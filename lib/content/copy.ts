@@ -2,112 +2,131 @@
  * TODA a copy do site, da LP e do linkbio. Um arquivo só, pra ser lido e
  * aprovado linha a linha (copy-system.md § 1).
  *
- * Voz: você, calorosa e simples. Calibragem 3 · 3 · 5
- * (meio formal · meio energética · bem simples).
+ * Voz: a do próprio Ateliê no Instagram. "A gente", frase curta, coisa
+ * concreta (tinta, terra, minhocário), sem jargão pedagógico e sem slogan.
  *
- * Regras do cliente (ficha no Ops):
- *  - NUNCA "creche" ou "escola". É espaço de desenvolvimento infantil.
- *  - Nada de preço, de equipe, de urgência de matrícula.
- *  - Chamada indireta: agendar visita.
+ * O que NÃO fazer aqui (cara de texto de IA):
+ *  - "não é X, é Y" / "mais do que X"
+ *  - lista de três pra dar ritmo ("sem pressa, sem cobrança, sem ...")
+ *  - "de verdade", "cada detalhe", "pensado com carinho", "jornada"
+ *  - inventar rotina, número ou detalhe que ninguém confirmou
+ *
+ * Regras do cliente (ficha no Ops): nunca "creche" nem "escola" pra se
+ * descrever; sem preço; sem equipe; chamada indireta (agendar visita).
  *
  * Fonte de cada fato:
- *  [ficha]   client_profiles no Ops (posicionamento, produtos, concorrência)
- *  [grupo]   WhatsApp do Ateliê (turmas 10/06; endereço e datas 10 a 16/09)
- *  [A_DEFINIR] ainda falta confirmar com o cliente
+ *  [ficha]  client_profiles no Ops
+ *  [ig]     legendas do @ateliedobrincaroficial (jun a set/2026)
+ *  [grupo]  WhatsApp do Ateliê (turmas 10/06; endereço e datas 10 a 16/09)
  */
 
 export const home = {
   hero: {
-    // [ficha] brincar livre, desenvolvimento integral
-    titulo: ['Criança pequena aprende'],
-    tituloOnda: 'brincando.',
+    rotulo: 'Desenvolvimento infantil · 6\u00a0meses a 3\u00a0anos',
+    // a última palavra ganha a onda de cores do logo
+    titulo: ['Tinta na mão, pé na terra e muito'],
+    tituloOnda: 'brincar.',
     apoio:
-      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos, em Ji‑Paraná. Tinta, lama, horta e muito tempo ao ar livre.',
-    selo: 'Novo endereço a partir de 5 de outubro',
+      'O Ateliê do Brincar recebe bebês e crianças pequenas em Ji‑Paraná. A rotina tem pintura, horta, minhocário, música e bastante tempo no quintal.',
+    selo: 'Casa nova a partir de 5/10',
   },
 
-  // [ficha] "brincar raiz (lama, tinta, texturas)", horta, música, inglês, ar livre
+  // [ig] projetos de junho e julho, [ficha] horta, música, inglês
   palavras: [
     'tinta',
-    'lama',
+    'terra',
+    'minhocário',
     'horta',
-    'texturas',
+    'bacia de água',
     'música',
-    'parquinho',
     'inglês',
-    'ar livre',
-    'comida de verdade',
+    'fruta no quintal',
+    'balão',
   ],
 
   declaracao: {
-    // [ficha] "opinião firme em favor da infância plena"
-    frase:
-      'Infância não é preparação para a escola. É a fase mais importante da vida, e ela acontece agora.',
+    frase: 'Roupa manchada de tinta é sinal de que o dia rendeu.',
   },
 
   proposta: {
-    titulo: 'O que acontece aqui dentro',
+    titulo: 'Como é o dia por aqui',
     itens: [
       {
-        titulo: 'Brincar livre',
+        titulo: 'A criança escolhe',
         texto:
-          'A criança escolhe, experimenta e repete. É assim que ela desenvolve o corpo, a linguagem e a autonomia.',
+          'O ambiente fica preparado com tinta, água, terra e brinquedos de encaixe. Ela decide por onde começar, e a educadora acompanha de perto.',
       },
       {
-        titulo: 'Um ambiente para cada atividade',
+        // [ficha] ambientes separados por atividade
+        titulo: 'Cada atividade no seu canto',
         texto:
-          'Espaços separados para pintar, construir, ouvir música e explorar. Nada de sala única com tudo junto.',
+          'Pintura tem um espaço, música tem outro. Assim a brincadeira não se mistura e a criança consegue se concentrar.',
       },
       {
-        titulo: 'Muito tempo ao ar livre',
-        texto: 'Horta, parquinho, terra e água. Sujar a roupa faz parte do dia.',
+        titulo: 'Quintal todo dia',
+        texto:
+          'Horta, minhocário, bacia de água no gramado. Voltar para casa com a roupa manchada faz parte.',
       },
       {
-        titulo: 'Convivência de verdade',
-        texto: 'Crianças pequenas aprendem umas com as outras: esperar, dividir, pedir ajuda.',
+        titulo: 'Junto com outras crianças',
+        texto:
+          'Na hora da fruta, da roda de música e do parquinho, uma aprende com a outra a esperar a vez.',
       },
     ],
-    link: 'Conhecer a proposta',
-    // [ficha] referências pedagógicas
-    referencias: 'Inspirado nas abordagens Reggio Emilia e Montessori.',
+    link: 'Ler sobre a proposta',
+    referencias: 'A proposta se inspira em Reggio Emilia e Montessori.',
   },
 
   turmas: {
-    titulo: 'Três turmas, por idade',
+    titulo: 'As turmas',
     // [grupo] Ateliê, 10/06/2026
     itens: [
       { nome: 'Berçário', faixa: '6 meses a 1 ano e meio' },
       { nome: 'Maternal I', faixa: '1 ano e meio a 2 anos e meio' },
       { nome: 'Maternal II', faixa: '2 anos e meio a 3 anos' },
     ],
-    nota: 'Cada turma tem o próprio espaço na nova unidade.',
+    nota: 'Vagas abertas o ano todo.',
   },
 
   rotina: {
-    titulo: 'Um dia comum no Ateliê',
+    titulo: 'Todo mês tem um projeto',
+    // [ig] post de 07/07: "A tinta que vem do verde", "Boliche das Emoções", "Explorando a colmeia"
+    apoio:
+      'Em julho teve tinta feita de couve, boliche das emoções e um minhocário. Essas fotos saíram do nosso Instagram.',
+    instagram: 'Ver mais no @ateliedobrincaroficial',
+    legendas: {
+      minhocario: 'Minhocário',
+      esponja: 'Pintura com esponja',
+      horta: 'Horta',
+      bacia: 'Explorando a colmeia',
+      degustacao: 'Fruta no quintal',
+      boliche: 'Boliche das Emoções',
+      tintaVerde: 'A tinta que vem do verde',
+    },
   },
 
   novoEspaco: {
-    rotulo: 'Nova unidade',
-    titulo: 'A partir de 5 de outubro, na Rua Mato Grosso',
+    rotulo: 'Casa nova',
+    titulo: 'Rua Mato Grosso, 1928, a partir de 5 de outubro',
     texto:
-      'O Ateliê muda para um espaço maior, com projeto de arquitetura feito para a primeira infância: berçário, maternal I e maternal II com ambientes próprios.',
+      'Uma casa térrea com gramado na frente, reformada com projeto de arquiteto. Berçário, Maternal I e Maternal II ficam em salas separadas.',
+    selo: 'Reinauguração 10/10',
     reinauguracao:
-      'Reinauguração em 10 de outubro, véspera do Dia das Crianças. As famílias estão convidadas.',
+      'Sábado, 10 de outubro, véspera do Dia das Crianças. As famílias estão convidadas.',
     comoChegar: 'Como chegar',
   },
 
   brinquedos: {
     selo: 'Em breve',
-    titulo: 'Brinquedos com a marca do Ateliê',
+    titulo: 'Brinquedos Ateliê do Brincar',
     texto:
-      'Uma linha própria, escolhida com o mesmo critério do nosso dia a dia. O showroom fica na nova unidade.',
+      'A gente está preparando uma linha de brinquedos com a nossa marca. Eles vão ficar expostos na recepção da casa nova.',
   },
 
   visita: {
-    titulo: 'Venha ver o Ateliê funcionando',
+    titulo: 'Agende uma visita',
     texto:
-      'Deixe seu nome e WhatsApp. A equipe chama você para combinar um horário de visita com a sua criança.',
+      'Deixe seu nome e WhatsApp. A gente chama para marcar um horário, e a sua criança pode vir junto.',
   },
 } as const
 
@@ -115,49 +134,51 @@ export const proposta = {
   meta: {
     title: 'A proposta',
     description:
-      'Brincar livre, ambientes por atividade e tempo ao ar livre. Como o Ateliê do Brincar cuida do desenvolvimento de crianças de 6 meses a 3 anos.',
+      'Brincar livre, ambientes separados por atividade e tempo no quintal. Como funciona o dia no Ateliê do Brincar, em Ji-Paraná.',
   },
   hero: {
-    titulo: 'Brincar é o trabalho da criança',
+    titulo: 'Como a gente trabalha',
     apoio:
-      'Tudo no Ateliê parte de uma ideia simples: a criança pequena aprende com o corpo inteiro, no tempo dela, cercada de gente que gosta de criança.',
+      'A proposta do Ateliê se inspira em Reggio Emilia e Montessori. Na prática, isso quer dizer ambiente preparado, material ao alcance da mão e adulto que observa antes de interferir.',
   },
   manifesto: [
-    'Até os 3 anos, o cérebro da criança se forma numa velocidade que nunca mais vai se repetir. O que ela vive nessa fase fica.',
-    'Por isso o Ateliê não tem apostila, não tem fila e não tem pressa. Tem tinta, terra, água, música, livro, bicho e outras crianças.',
-    'A equipe observa, acolhe e prepara o ambiente. Quem conduz a brincadeira é a criança.',
+    'Numa manhã comum, uma criança fica na bacia de água enquanto a do lado pinta com esponja. Cada uma termina quando termina.',
+    'Antes da turma chegar, as educadoras deixam o espaço pronto: tinta, terra, água, brinquedos de encaixe. Depois observam o que chamou a atenção de cada criança.',
+    'No meio disso tem fruta no quintal, roda de música, um pouco de inglês e visita à horta.',
   ],
-  destaque: 'Quem conduz a brincadeira é a criança.',
+  destaque: 'Quem escolhe a brincadeira é a criança.',
   diaADia: {
-    titulo: 'O que faz parte da rotina',
-    // [ficha] produto "Espaço de Desenvolvimento Infantil"
+    titulo: 'Faz parte da semana',
     itens: [
-      { titulo: 'Horta', texto: 'Plantar, regar e colher. E depois provar.' },
-      { titulo: 'Brincar raiz', texto: 'Lama, tinta e texturas, com roupa que pode sujar.' },
-      { titulo: 'Parquinho', texto: 'Subir, descer, cair e levantar.' },
-      { titulo: 'Música', texto: 'Ritmo, som e movimento todos os dias.' },
-      { titulo: 'Inglês', texto: 'Contato com a segunda língua desde cedo, brincando.' },
-      { titulo: 'Alimentação saudável', texto: 'Comida de verdade, no ritmo de cada idade.' },
+      { titulo: 'Horta', texto: 'As crianças plantam, regam e depois provam o que nasceu.' },
+      {
+        titulo: 'Tinta, terra e água',
+        texto: 'Com a mão, com o pé, com esponja. A roupa volta manchada.',
+      },
+      { titulo: 'Parquinho', texto: 'Subir, escorregar, cair e levantar de novo.' },
+      { titulo: 'Música', texto: 'Roda de cantiga, instrumento na mão e balão subindo.' },
+      { titulo: 'Inglês', texto: 'Palavras e músicas em inglês no meio da brincadeira.' },
+      { titulo: 'Alimentação saudável', texto: 'Fruta, legume e degustação no quintal.' },
     ],
   },
   contraste: {
-    titulo: 'Um espaço só para a primeira infância',
+    titulo: 'Só para quem tem até 3 anos',
     sim: {
       titulo: 'No Ateliê',
       itens: [
-        'Só crianças de 6 meses a 3 anos',
-        'Ambientes separados por atividade',
-        'A criança escolhe o que explorar',
-        'Muito tempo fora da sala',
+        'Todas as crianças têm de 6 meses a 3 anos',
+        'Uma sala para cada turma',
+        'Espaços separados por atividade',
+        'Tempo no quintal todos os dias',
       ],
     },
     nao: {
-      titulo: 'No modelo tradicional',
+      titulo: 'Em espaços para todas as idades',
       itens: [
-        'Faixas de idade muito diferentes juntas',
-        'Uma sala para tudo',
-        'Atividade igual para todos, na mesma hora',
-        'Pouco tempo ao ar livre',
+        'Bebês dividem o espaço com crianças bem maiores',
+        'A mesma sala serve para tudo',
+        'A atividade é igual para todos, na mesma hora',
+        'Pouco tempo fora da sala',
       ],
     },
   },
@@ -170,30 +191,28 @@ export const turmas = {
       'Berçário, Maternal I e Maternal II: as turmas do Ateliê do Brincar em Ji-Paraná, para crianças de 6 meses a 3 anos.',
   },
   hero: {
-    titulo: 'Berçário, Maternal I e Maternal II',
-    apoio:
-      'As crianças são agrupadas por idade, e cada turma tem o próprio espaço na nova unidade.',
+    titulo: 'As turmas',
+    apoio: 'São três, separadas pela idade da criança. Na casa nova, cada uma tem a sua sala.',
   },
   itens: [
     {
       nome: 'Berçário',
       faixa: '6 meses a 1 ano e meio',
       texto:
-        'Tempo de chão, de engatinhar e de descobrir o próprio corpo. Ambiente baixo, macio e seguro, com estímulos para os primeiros passos.',
+        'Para quem está aprendendo a sentar, engatinhar e andar. Muito chão livre, som de chocalho e textura para explorar com as mãos.',
       cor: 'baby',
     },
     {
       nome: 'Maternal I',
       faixa: '1 ano e meio a 2 anos e meio',
       texto:
-        'A fase do "eu faço sozinho". Muito movimento, as primeiras palavras em frases e as primeiras brincadeiras em grupo.',
+        'A idade de querer fazer tudo sozinho: comer, subir, abrir, fechar. A gente deixa tentar e fica do lado.',
       cor: 'menta',
     },
     {
       nome: 'Maternal II',
       faixa: '2 anos e meio a 3 anos',
-      texto:
-        'Faz de conta, perguntas sem fim e amizades. A criança ganha autonomia para comer, se vestir e resolver pequenos conflitos.',
+      texto: 'Chegam o faz de conta, as perguntas sem fim e os primeiros amigos.',
       cor: 'gema',
     },
   ],
@@ -203,17 +222,18 @@ export const visite = {
   meta: {
     title: 'Agende uma visita',
     description:
-      'Agende uma visita ao Ateliê do Brincar na Rua Mato Grosso, 1928, Casa Preta, Ji-Paraná/RO. Nova unidade a partir de 5 de outubro.',
+      'Agende uma visita ao Ateliê do Brincar na Rua Mato Grosso, 1928, Casa Preta, Ji-Paraná/RO. Casa nova a partir de 5 de outubro.',
   },
   hero: {
     titulo: 'Agende uma visita',
-    apoio: 'A melhor forma de conhecer o Ateliê é ver as crianças brincando. Traga a sua junto.',
+    apoio:
+      'Você conhece a casa, vê as crianças brincando e tira as dúvidas com a equipe. Pode trazer a sua criança.',
   },
   datas: [
-    { data: '5 de outubro', texto: 'O Ateliê começa a funcionar no novo endereço.' },
-    { data: '10 de outubro', texto: 'Reinauguração, com as famílias convidadas.' },
+    { data: 'Segunda, 5 de outubro', texto: 'O Ateliê começa a funcionar na casa nova.' },
+    { data: 'Sábado, 10 de outubro', texto: 'Reinauguração, com as famílias convidadas.' },
   ],
-  horario: '[A_DEFINIR] horário de funcionamento da nova unidade',
+  horario: '[A_DEFINIR] horário de funcionamento da casa nova',
 } as const
 
 export const form = {
@@ -229,64 +249,56 @@ export const form = {
   ],
   enviar: 'Agendar uma visita',
   enviando: 'Enviando',
-  sucessoTitulo: 'Recebemos seu contato',
-  sucessoTexto: 'A equipe do Ateliê chama você no WhatsApp para combinar o horário.',
-  erro: 'Não conseguimos enviar agora. Chame a gente direto no WhatsApp.',
-  whatsappAlternativa: 'Prefere já conversar?',
+  sucessoTitulo: 'Pronto, recebemos',
+  sucessoTexto: 'Alguém do Ateliê vai chamar você no WhatsApp para marcar o horário.',
+  erro: 'Não deu para enviar agora. Chame a gente direto no WhatsApp.',
+  whatsappAlternativa: 'Prefere conversar agora?',
   whatsappBotao: 'Chamar no WhatsApp',
 } as const
 
 /** Mensagens pré-preenchidas do WhatsApp, por origem (variants/servico-local.md § 6). */
 export const waTexto = {
-  site: 'Olá! Vim pelo site e quero agendar uma visita ao Ateliê.',
-  lp: 'Olá! Vi o anúncio e quero agendar uma visita ao Ateliê.',
-  links: 'Olá! Vim pelo Instagram e quero agendar uma visita ao Ateliê.',
-  reinauguracao: 'Olá! Vim pelo Instagram e quero saber da reinauguração do dia 10/10.',
+  site: 'Oi! Vim pelo site e queria agendar uma visita ao Ateliê.',
+  lp: 'Oi! Vi o anúncio e queria agendar uma visita ao Ateliê.',
+  links: 'Oi! Vim pelo Instagram e queria agendar uma visita ao Ateliê.',
+  reinauguracao: 'Oi! Vim pelo Instagram e queria saber da reinauguração do dia 10/10.',
 } as const
 
 export const lp = {
   meta: {
     title: 'Agende uma visita ao Ateliê do Brincar',
     description:
-      'Espaço de desenvolvimento infantil de 6 meses a 3 anos em Ji-Paraná. Agende uma visita à nova unidade.',
+      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná. Agende uma visita à casa nova.',
   },
   hero: {
-    titulo: ['Conheça o novo'],
+    titulo: ['Visite a casa nova do'],
     tituloOnda: 'Ateliê.',
     apoio:
-      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji‑Paraná. Agende uma visita e veja a rotina de perto.',
+      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji‑Paraná. Agende uma visita e veja as crianças brincando.',
   },
   barra: 'Agendar uma visita',
 } as const
 
 export const links = {
-  frase: 'Desenvolvimento infantil pelo brincar. 6 meses a 3 anos, em Ji‑Paraná.',
+  frase: 'Crianças de 6 meses a 3 anos em Ji‑Paraná. Tinta, terra e muito brincar.',
   itens: [
     {
       titulo: 'Agendar uma visita',
-      texto: 'Chame a equipe no WhatsApp e combine um horário.',
+      texto: 'Chame a gente no WhatsApp e marque um horário.',
       acao: 'Chamar no WhatsApp',
     },
     {
       titulo: 'Reinauguração 10/10',
-      texto: 'O novo Ateliê abre as portas para as famílias.',
-      acao: 'Saber mais',
+      texto: 'Sábado, véspera do Dia das Crianças, na casa nova.',
+      acao: 'Perguntar',
     },
-    {
-      titulo: 'Novo endereço',
-      texto: 'Rua Mato Grosso, 1928 · Casa Preta.',
-      acao: 'Abrir no mapa',
-    },
-    {
-      titulo: 'A proposta',
-      texto: 'Por que aqui a criança aprende brincando.',
-      acao: 'Ler no site',
-    },
+    { titulo: 'Casa nova', texto: 'Rua Mato Grosso, 1928 · Casa Preta.', acao: 'Abrir no mapa' },
+    { titulo: 'A proposta', texto: 'Como funciona o dia no Ateliê.', acao: 'Ler no site' },
     { titulo: 'Turmas', texto: 'Berçário, Maternal I e Maternal II.', acao: 'Ver as turmas' },
   ],
 } as const
 
 export const rodape = {
-  frase: 'Espaço de desenvolvimento infantil. 6 meses a 3 anos.',
+  frase: 'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos.',
   privacidade: 'Privacidade',
 } as const

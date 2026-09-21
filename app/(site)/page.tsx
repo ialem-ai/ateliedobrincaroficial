@@ -34,7 +34,7 @@ export default function HomePage() {
       <Declaracao frase={home.declaracao.frase} />
       <PropostaLista {...home.proposta} />
       <TurmasFicha titulo={home.turmas.titulo} itens={home.turmas.itens} nota={home.turmas.nota} />
-      <Rotina titulo={home.rotina.titulo} />
+      <Rotina titulo={home.rotina.titulo} apoio={home.rotina.apoio} />
       <NovoEspaco />
       <Brinquedos />
       <Agendar origem="site" />

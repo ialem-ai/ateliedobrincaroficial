@@ -9,7 +9,7 @@ import { TurmasFicha } from '@/components/atelie/turmas-ficha'
 import { StickyCTA } from '@/components/layout/sticky-cta'
 import { Container } from '@/components/ui/container'
 import { site } from '@/config/site'
-import { home, lp } from '@/lib/content/copy'
+import { home, lp, waTexto } from '@/lib/content/copy'
 
 export const metadata: Metadata = {
   title: { absolute: lp.meta.title },
@@ -30,7 +30,8 @@ export default function LpVisita() {
   return (
     <>
       <Hero
-        titulo={lp.hero.titulo}
+        titulo={lp.hero.titulo[0]}
+        waMsg={waTexto.lp}
         tituloOnda={lp.hero.tituloOnda}
         apoio={lp.hero.apoio}
         topo={
@@ -55,7 +56,7 @@ export default function LpVisita() {
         nota={home.turmas.nota}
         comLink={false}
       />
-      <Rotina titulo={home.rotina.titulo} />
+      <Rotina titulo={home.rotina.titulo} apoio={home.rotina.apoio} />
       <NovoEspaco />
       <Agendar origem="lp" />
       <footer className="pt-10 pb-28 md:pb-10">

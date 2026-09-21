@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Reveal } from '@/components/animations/reveal'
+import { Brilho } from '@/components/effects/brilho'
 import { site, wa } from '@/config/site'
 import { links, waTexto } from '@/lib/content/copy'
 
@@ -102,7 +103,7 @@ export default function LinksPage() {
                     <h2 className="text-[1.45rem] leading-[1.05]">{l.titulo}</h2>
                     <p className="text-[var(--color-ink-soft)] leading-snug">{l.texto}</p>
                     <span className="mt-1 font-extrabold text-[var(--color-violeta)] text-sm">
-                      {l.acao}
+                      {i === 0 ? <Brilho>{l.acao}</Brilho> : l.acao}
                       <span
                         aria-hidden
                         className="ml-1 inline-block transition-transform group-hover:translate-x-0.5"

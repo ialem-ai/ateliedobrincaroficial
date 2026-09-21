@@ -1,6 +1,7 @@
 import { MapPin } from 'lucide-react'
 import Image from 'next/image'
 import { Reveal } from '@/components/animations/reveal'
+import { Brilho } from '@/components/effects/brilho'
 import { SlideUp } from '@/components/effects/slide-up'
 import { Container } from '@/components/ui/container'
 import { addressLine, site } from '@/config/site'
@@ -29,7 +30,10 @@ export function NovoEspaco() {
           <SlideUp className="text-h2 mt-4 text-[var(--color-ink)]">{c.titulo}</SlideUp>
           <Reveal>
             <p className="mt-5 text-lg">{c.texto}</p>
-            <p className="mt-4 font-bold text-lg">{c.reinauguracao}</p>
+            <p className="mt-6 inline-block rounded-full bg-[var(--color-violeta)] px-4 pt-2 pb-1.5 font-extrabold text-white">
+              <Brilho>{c.selo}</Brilho>
+            </p>
+            <p className="mt-3 font-bold text-lg">{c.reinauguracao}</p>
             <address className="mt-6 flex gap-2 not-italic">
               <MapPin aria-hidden className="mt-0.5 size-5 shrink-0" />
               <span>
