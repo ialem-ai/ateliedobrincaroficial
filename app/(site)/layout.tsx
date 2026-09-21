@@ -10,9 +10,6 @@ const NAV = [
 ]
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
-  // Em manutenção o menu levaria pra páginas fechadas: a home fica sozinha.
-  if (site.manutencao) return <main>{children}</main>
-
   return (
     <>
       <Header

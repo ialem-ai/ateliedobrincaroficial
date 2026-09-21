@@ -24,15 +24,6 @@ export const site = {
   /** Direção escolhida em 21/09: "Livro de histórias" (derivada do D3 bloco cromático). */
   theme: 'livro-de-historias',
 
-  /**
-   * Site institucional em manutenção: a home vira a página de manutenção e
-   * /proposta, /turmas e /visite redirecionam pra ela. Continuam no ar a LP
-   * (/visita), o linkbio (/links), a privacidade e o formulário.
-   * Padrão LIGADO: env ausente não libera nada. Pra abrir: SITE_MANUTENCAO=false
-   * no projeto da Vercel, ou trocar aqui e fazer push.
-   */
-  manutencao: process.env.SITE_MANUTENCAO !== 'false',
-
   ageRange: '6 meses a 3 anos',
 
   cta: {

@@ -386,14 +386,6 @@ export const links = {
   ],
 } as const
 
-export const manutencao = {
-  selo: 'Site em manutenção',
-  titulo: 'O site está em manutenção.',
-  apoio:
-    'Enquanto isso, dá para conhecer o Ateliê e agendar uma visita por aqui, ou falar com a gente pelo WhatsApp.',
-  conhecer: 'Conhecer o Ateliê',
-} as const
-
 export const rodape = {
   frase: 'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos.',
   privacidade: 'Privacidade',

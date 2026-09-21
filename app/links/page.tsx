@@ -28,8 +28,7 @@ const LINKS = [
   },
   {
     ...nossoSite,
-    // institucional em manutenção: o "site" que está no ar é a página da visita
-    href: site.manutencao ? '/visita' : '/',
+    href: '/',
     foto: '/fotos/minhocario.jpg',
     pos: '50% 60%',
     cor: 'var(--color-baby)',
