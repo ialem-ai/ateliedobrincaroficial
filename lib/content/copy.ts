@@ -247,6 +247,15 @@ export const form = {
   erro: 'Não deu para enviar agora. Chame a gente direto no WhatsApp.',
   whatsappAlternativa: 'Prefere conversar agora?',
   whatsappBotao: 'Chamar no WhatsApp',
+  // LP: depois do envio, a conversa segue no WhatsApp
+  seguirTexto: 'Falta um passo: mande a mensagem no WhatsApp para a equipe marcar o seu horário.',
+  seguirBotao: 'Enviar mensagem no WhatsApp',
+  seguirMensagem: (nome: string, idade: string) =>
+    `Oi! Sou ${nome.trim().split(' ')[0]}, acabei de pedir uma visita pelo site. ${
+      idade.startsWith('Ainda')
+        ? 'Meu bebê ainda está a caminho.'
+        : `Minha criança tem ${idade.toLowerCase()}.`
+    }`,
 } as const
 
 /** Mensagens pré-preenchidas do WhatsApp, por origem (variants/servico-local.md § 6). */
@@ -256,19 +265,106 @@ export const waTexto = {
   links: 'Oi! Vim pelo Instagram e queria agendar uma visita ao Ateliê.',
 } as const
 
+/**
+ * LP de tráfego pago (/visita). Estrutura Russell Brunson, adaptada a serviço
+ * local e às regras do cliente (sem preço, sem urgência falsa, CTA indireto):
+ *
+ *  GANCHO   chama o público pelo nome e promete ver antes de decidir
+ *  HISTÓRIA por que o Ateliê existe (frase do próprio Ateliê, post de 22/07)
+ *  CRENÇAS  as 3 dúvidas reais do carrossel de 29/07, uma por falsa crença:
+ *           veículo ("é escola ou creche?"), interna ("muito pequeno?"),
+ *           externa ("é seguro?")
+ *  PROVA    projetos do mês com fotos reais
+ *  OFERTA   o que acontece na visita, passo a passo
+ *  CTA      um só: formulário que termina no WhatsApp
+ */
 export const lp = {
   meta: {
     title: 'Agende uma visita ao Ateliê do Brincar',
     description:
-      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná. Agende uma visita.',
+      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná. Agende uma visita e veja a rotina antes de decidir.',
   },
   hero: {
-    titulo: ['Agende uma visita ao'],
-    tituloOnda: 'Ateliê.',
+    chamada: 'Para mães e pais de Ji‑Paraná com filho de 6 meses a 3 anos',
+    titulo: 'Veja o Ateliê funcionando antes de',
+    tituloOnda: 'decidir.',
     apoio:
-      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji‑Paraná. Agende uma visita e veja as crianças brincando.',
+      'Escolher onde deixar um filho pequeno é difícil, a gente sabe. Na visita você conhece as salas, vê a rotina das turmas e conversa com a equipe.',
+    cta: 'Agendar minha visita',
+    nota: 'Leva menos de 1 minuto. A equipe chama você no WhatsApp.',
   },
-  barra: 'Agendar uma visita',
+  historia: {
+    // [ig] 22/07: "O Ateliê do Brincar foi criado com uma filosofia clara..."
+    titulo: 'O Ateliê foi criado com uma ideia só',
+    frase: 'A primeira infância merece um espaço inteiro dedicado a ela.',
+    texto:
+      'Por isso aqui só entram crianças de 6 meses a 3 anos. Ninguém divide atenção com turmas de crianças maiores, e cada sala, brinquedo e atividade foi escolhido para essa idade.',
+  },
+  duvidas: {
+    titulo: 'As três perguntas que quase toda família faz',
+    apoio:
+      'A gente ouve essas perguntas toda semana. As respostas estão aqui, e na visita você confere pessoalmente.',
+    // [ig] carrossel de 29/07 "Antes de decidir, você provavelmente tem essas dúvidas"
+    itens: [
+      {
+        pergunta: 'Meu filho não é pequeno demais?',
+        resposta:
+          'A partir do Berçário, o convívio com outras crianças e os estímulos certos já fazem diferença no desenvolvimento. Os bebês ficam numa turma só deles, de 6 meses a 1 ano e meio.',
+        foto: '/fotos/boliche.jpg',
+        alt: 'Bebê sentado na grama segurando pinos coloridos de boliche',
+        pos: '50% 55%',
+        cor: 'baby',
+      },
+      {
+        pergunta: 'Como eu sei se o espaço é seguro?',
+        // [ig] 17/06: "pisos adequados, brinquedos sensoriais certificados"
+        resposta:
+          'Vendo com os próprios olhos. Na visita você anda pelas salas e conhece as profissionais. Os pisos são próprios para bebês e os brinquedos sensoriais são certificados.',
+        foto: '/fotos/bacia-sensorial.jpg',
+        alt: 'Menina mexendo numa bacia com água amarela, acompanhada de perto',
+        pos: '50% 50%',
+        cor: 'menta',
+      },
+      {
+        pergunta: 'O Ateliê é escola ou creche?',
+        resposta:
+          'Nenhum dos dois. É um espaço de desenvolvimento infantil, com ambientes separados por atividade. Horta, tinta, lama e música entram na rotina com um propósito, e a criança aprende com o ambiente, não só com a professora.',
+        foto: '/fotos/minhocario.jpg',
+        alt: 'Duas meninas rindo sentadas na grama, com um minhocário de terra na frente',
+        pos: '50% 60%',
+        cor: 'gema',
+      },
+    ],
+  },
+  prova: {
+    titulo: 'O que as turmas fizeram em julho',
+    apoio:
+      'Todo mês tem um projeto novo. Essas fotos são do nosso Instagram, onde 3,1 mil pessoas acompanham a rotina.',
+  },
+  visita: {
+    titulo: 'Como funciona a visita',
+    passos: [
+      { titulo: 'Você deixa seu nome e WhatsApp', texto: 'Aqui embaixo, em menos de 1 minuto.' },
+      {
+        titulo: 'A equipe chama você para marcar',
+        texto: 'Pelo WhatsApp, no horário que for melhor para você.',
+      },
+      {
+        titulo: 'Você conhece o Ateliê por dentro',
+        texto: 'As salas de cada turma, o quintal, a horta e a rotina funcionando.',
+      },
+      {
+        titulo: 'Tira todas as dúvidas',
+        texto: 'Com calma, conversando com a equipe. A decisão fica para depois.',
+      },
+    ],
+  },
+  formulario: {
+    titulo: 'Agende sua visita',
+    texto:
+      'Deixe seus dados e mande a mensagem no WhatsApp. A equipe responde e marca o horário com você.',
+  },
+  barra: 'Agendar minha visita',
 } as const
 
 export const links = {

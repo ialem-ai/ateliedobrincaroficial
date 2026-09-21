@@ -12,7 +12,7 @@ export function StickyCTA({
   href?: string
 }) {
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-4 pb-4 md:inset-auto md:top-5 md:right-6 md:bottom-auto md:px-0 md:pb-0">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-4 pb-4 md:inset-auto md:top-16 md:right-6 md:bottom-auto md:px-0 md:pb-0">
       <a
         href={href}
         data-cta="barra-fixa"

@@ -23,8 +23,24 @@ function mascara(v: string) {
 const campo =
   'block w-full rounded-2xl border-2 border-transparent bg-white px-4 py-3.5 text-[var(--color-ink)] text-lg outline-none transition-colors placeholder:text-[var(--color-ink-soft)]/60 focus:border-[var(--color-gema)] aria-[invalid=true]:border-[var(--color-mecanica)]'
 
-export function VisitaForm({ origem }: { origem: 'site' | 'lp' | 'visite' }) {
+/**
+ * `seguirNoWhatsApp`: depois de enviar, o próximo passo é o WhatsApp, com a
+ * mensagem já preenchida com o nome e a idade. Na LP é a ação única da página:
+ * o contato cai no portal E a conversa começa, sem a pessoa escolher entre dois
+ * caminhos (Brunson: um CTA por página).
+ */
+export function VisitaForm({
+  origem,
+  seguirNoWhatsApp = false,
+  rotuloEnviar = form.enviar,
+}: {
+  origem: 'site' | 'lp' | 'visite'
+  seguirNoWhatsApp?: boolean
+  /** o mesmo texto do CTA da página (na LP: "Agendar minha visita") */
+  rotuloEnviar?: string
+}) {
   const [estado, setEstado] = useState<'livre' | 'ok' | 'erro'>('livre')
+  const [enviado, setEnviado] = useState<{ nome: string; idade: string } | null>(null)
   const comecou = useRef(false)
 
   const {
@@ -54,6 +70,7 @@ export function VisitaForm({ origem }: { origem: 'site' | 'lp' | 'visite' }) {
       })
       if (!r.ok) throw new Error(String(r.status))
       trackLead()
+      setEnviado({ nome: data.nome, idade: data.idade })
       setEstado('ok')
     } catch {
       setEstado('erro')
@@ -70,7 +87,23 @@ export function VisitaForm({ origem }: { origem: 'site' | 'lp' | 'visite' }) {
         <p className="mt-4 font-extrabold text-2xl text-[var(--color-violeta)]">
           {form.sucessoTitulo}
         </p>
-        <p className="mt-2 text-lg">{form.sucessoTexto}</p>
+        {seguirNoWhatsApp && enviado ? (
+          <>
+            <p className="mt-2 text-lg">{form.seguirTexto}</p>
+            <a
+              href={wa(form.seguirMensagem(enviado.nome, enviado.idade))}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta={`form-${origem}-whatsapp`}
+              onClick={() => trackEvent('whatsapp_click', { origem: `form-${origem}` })}
+              className="mt-6 inline-flex min-h-[54px] w-full items-center justify-center rounded-[var(--radius-btn)] bg-[var(--color-menta)] px-6 py-3.5 font-extrabold text-[var(--color-ink)] text-lg shadow-[0_4px_0_#04785f]"
+            >
+              {form.seguirBotao}
+            </a>
+          </>
+        ) : (
+          <p className="mt-2 text-lg">{form.sucessoTexto}</p>
+        )}
       </div>
     )
   }
@@ -175,7 +208,7 @@ export function VisitaForm({ origem }: { origem: 'site' | 'lp' | 'visite' }) {
           disabled={isSubmitting}
           data-cta={`form-${origem}`}
         >
-          {isSubmitting ? form.enviando : form.enviar}
+          {isSubmitting ? form.enviando : rotuloEnviar}
         </Button>
 
         {estado === 'erro' ? (

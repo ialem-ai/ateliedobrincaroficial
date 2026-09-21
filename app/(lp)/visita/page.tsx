@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Agendar } from '@/components/atelie/agendar'
-import { Hero } from '@/components/atelie/hero'
-import { NovoEspaco } from '@/components/atelie/novo-espaco'
-import { PropostaLista } from '@/components/atelie/proposta-lista'
-import { Rotina } from '@/components/atelie/rotina'
-import { TurmasFicha } from '@/components/atelie/turmas-ficha'
 import { StickyCTA } from '@/components/layout/sticky-cta'
+import { Duvidas } from '@/components/lp/duvidas'
+import { Historia } from '@/components/lp/historia'
+import { LpHero } from '@/components/lp/lp-hero'
+import { Passos } from '@/components/lp/passos'
+import { Prova } from '@/components/lp/prova'
 import { Container } from '@/components/ui/container'
 import { site } from '@/config/site'
-import { home, lp, waTexto } from '@/lib/content/copy'
+import { lp } from '@/lib/content/copy'
 
 export const metadata: Metadata = {
   title: { absolute: lp.meta.title },
@@ -18,47 +18,31 @@ export const metadata: Metadata = {
 }
 
 /*
- * LP de tráfego pago (Meta Ads): agendar visita. Sem header, barra fixa de CTA.
- * 01 hero        E02  logo no topo + manchete + foto em mancha
- * 02 proposta    E06  lista numerada (sem link pro site: link de fuga)
- * 03 turmas      E10  ficha
- * 04 rotina      E20  contact sheet
- * 05 novo espaço E03  split com bloco gema
- * 06 visita      E17  formulário
+ * LP de tráfego pago (Meta Ads). Sem header, uma ação só (formulário que
+ * termina no WhatsApp), barra fixa levando ao formulário.
+ *
+ * 01 gancho     faixa de chamada + manchete + foto horizontal em mancha
+ * 02 história   bloco menta, frase palavra por palavra
+ * 03 dúvidas    E19 sticky lateral, 3 perguntas com foto
+ * 04 prova      E15 carrossel com scroll-snap
+ * 05 oferta     E08 linha do tempo em 4 passos
+ * 06 visita     E17 degradê + formulário
  */
 export default function LpVisita() {
   return (
     <>
-      <Hero
-        titulo={lp.hero.titulo[0]}
-        waMsg={waTexto.lp}
-        tituloOnda={lp.hero.tituloOnda}
-        apoio={lp.hero.apoio}
-        topo={
-          // biome-ignore lint/performance/noImgElement: logo local, tamanho fixo
-          <img
-            src="/brand/logo-principal.png"
-            alt={site.name}
-            width={180}
-            height={75}
-            className="mb-8 h-auto w-[180px]"
-          />
-        }
+      <LpHero />
+      <Historia />
+      <Duvidas />
+      <Prova />
+      <Passos />
+      <Agendar
+        origem="lp"
+        titulo={lp.formulario.titulo}
+        texto={lp.formulario.texto}
+        rotuloEnviar={lp.hero.cta}
+        soFormulario
       />
-      <PropostaLista
-        titulo={home.proposta.titulo}
-        itens={home.proposta.itens}
-        referencias={home.proposta.referencias}
-      />
-      <TurmasFicha
-        titulo={home.turmas.titulo}
-        itens={home.turmas.itens}
-        nota={home.turmas.nota}
-        comLink={false}
-      />
-      <Rotina titulo={home.rotina.titulo} apoio={home.rotina.apoio} />
-      <NovoEspaco />
-      <Agendar origem="lp" />
       <footer className="pt-10 pb-28 md:pb-10">
         <Container className="text-[var(--color-ink-soft)] text-sm">
           {site.legalName} · CNPJ {site.cnpj} ·{' '}
@@ -67,7 +51,7 @@ export default function LpVisita() {
           </Link>
         </Container>
       </footer>
-      <StickyCTA />
+      <StickyCTA label={lp.barra} />
     </>
   )
 }
