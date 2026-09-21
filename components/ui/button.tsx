@@ -18,8 +18,8 @@ const buttonStyles = cva(
           'border-2 border-current text-[var(--color-violeta)] hover:bg-[var(--color-violeta)] hover:text-white',
       },
       size: {
-        md: 'px-6 pt-3.5 pb-3 text-base',
-        lg: 'px-8 pt-4 pb-3.5 text-lg',
+        md: 'px-6 py-3.5 text-base',
+        lg: 'px-8 py-4 text-lg',
       },
     },
     defaultVariants: { variant: 'primary', size: 'md' },

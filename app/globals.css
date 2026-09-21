@@ -229,9 +229,7 @@
 .onda-faixas[data-play='loop'] {
   animation: onda-loop 6s var(--ease-brand) infinite both;
 }
-[data-paused='true'] .onda-faixas {
-  animation-play-state: paused;
-}
+
 
 /* Brilho do selo "em breve" (shimmer do spell.sh). 3 passadas e para: < 5s. */
 @keyframes brilho {

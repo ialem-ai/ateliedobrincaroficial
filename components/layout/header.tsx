@@ -84,7 +84,7 @@ export function Header({
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'pt-1 font-bold text-[0.975rem] text-[var(--color-violeta)] transition-opacity hover:opacity-100',
+                  'font-bold text-[0.975rem] text-[var(--color-violeta)] transition-opacity hover:opacity-100',
                   active ? 'opacity-100' : 'opacity-70'
                 )}
               >
@@ -98,7 +98,7 @@ export function Header({
           {cta ? (
             <a
               href={cta.href}
-              className="hidden min-h-[44px] items-center rounded-[var(--radius-btn)] bg-[var(--color-violeta)] px-5 pt-1 font-display font-extrabold text-sm text-white shadow-[0_3px_0_#4a1763] transition-colors hover:bg-[var(--color-accent-hover)] md:inline-flex"
+              className="hidden min-h-[44px] items-center rounded-[var(--radius-btn)] bg-[var(--color-violeta)] px-5 font-display font-extrabold text-sm text-white shadow-[0_3px_0_#4a1763] transition-colors hover:bg-[var(--color-accent-hover)] md:inline-flex"
             >
               {cta.label}
             </a>

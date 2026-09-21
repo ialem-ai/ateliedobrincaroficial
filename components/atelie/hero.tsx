@@ -1,8 +1,6 @@
 'use client'
 
-import { Pause, Play } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
 import { Olhinhos, SeloGirando } from '@/components/atelie/marca'
 import { BlurReveal } from '@/components/effects/blur-reveal'
 import { ButtonLink } from '@/components/ui/button'
@@ -14,7 +12,7 @@ import { form, home, waTexto } from '@/lib/content/copy'
  * Topo · E02 em colagem: foto principal recortada em mancha, duas fotos
  * menores em manchas, chapa gema atrás, selo do manual girando com a rolagem
  * e os olhinhos do "ã" espiando. Manchete letra a letra (blur reveal) com a
- * onda de cores do logo na última palavra, repetindo a cada 6s, com pausa.
+ * onda de cores do logo na última palavra, uma vez só (menos de 5s: dispensa botão de pausa).
  */
 export function Hero({
   rotulo = home.hero.rotulo,
@@ -36,14 +34,12 @@ export function Hero({
   /** Logo no topo, quando a página não tem header (LP) */
   topo?: React.ReactNode
 }) {
-  const [pausado, setPausado] = useState(false)
-
   return (
-    <section data-paused={pausado} className="relative overflow-hidden pt-4 pb-16 md:pt-8 md:pb-28">
+    <section className="relative overflow-hidden pt-4 pb-16 md:pt-8 md:pb-28">
       <Container className="grid items-center gap-12 md:grid-cols-12 md:gap-6">
         <div className="relative z-10 md:col-span-6">
           {topo}
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-[var(--color-menta)] px-4 pt-2 pb-1.5 font-bold text-[var(--color-ink)] text-sm">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-[var(--color-menta)] px-4 py-2 font-bold text-[var(--color-ink)] text-sm">
             <span aria-hidden className="size-2 rounded-full bg-[var(--color-ink)]" />
             {selo}
           </p>
@@ -51,7 +47,6 @@ export function Hero({
           <BlurReveal
             texto={titulo}
             onda={tituloOnda}
-            ondaLoop
             className="font-extrabold text-[clamp(2.7rem,6.2vw,5.1rem)] leading-[0.98] tracking-[-0.035em]"
           />
           <p className="mt-7 max-w-[44ch] text-[var(--color-ink-soft)] text-lg leading-relaxed md:text-xl">
@@ -71,19 +66,6 @@ export function Hero({
               {form.whatsappBotao}
             </a>
           </div>
-          <button
-            type="button"
-            onClick={() => setPausado((v) => !v)}
-            aria-pressed={pausado}
-            className="mt-6 inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-[var(--color-ink-soft)] text-sm hover:bg-[var(--color-rule)]"
-          >
-            {pausado ? (
-              <Play aria-hidden className="size-3.5" />
-            ) : (
-              <Pause aria-hidden className="size-3.5" />
-            )}
-            {pausado ? 'Retomar animação' : 'Pausar animação'}
-          </button>
         </div>
 
         {/* colagem */}

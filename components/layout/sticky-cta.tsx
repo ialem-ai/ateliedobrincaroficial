@@ -16,7 +16,7 @@ export function StickyCTA({
       <a
         href={href}
         data-cta="barra-fixa"
-        className="pointer-events-auto flex min-h-[54px] w-full items-center justify-center rounded-[var(--radius-btn)] bg-[var(--color-violeta)] px-7 pt-1 font-extrabold text-lg text-white shadow-[0_4px_0_#4a1763] md:w-auto"
+        className="pointer-events-auto flex min-h-[54px] w-full items-center justify-center rounded-[var(--radius-btn)] bg-[var(--color-violeta)] px-7 font-extrabold text-lg text-white shadow-[0_4px_0_#4a1763] md:w-auto"
       >
         {label}
       </a>

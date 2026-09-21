@@ -115,9 +115,9 @@ export default function PropostaPage() {
               ))}
               <li
                 aria-hidden="true"
-                className="hidden place-items-center rounded-[var(--radius-card)] bg-[var(--color-violeta)] p-6 sm:grid"
+                className="hidden place-items-center rounded-[var(--radius-card)] bg-[var(--color-gema)] p-6 sm:grid"
               >
-                <SeloGirando className="w-28 brightness-0 invert md:w-32" />
+                <SeloGirando className="w-32 md:w-36" />
               </li>
             </ul>
           </div>

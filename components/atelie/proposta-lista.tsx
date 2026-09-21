@@ -51,7 +51,7 @@ export function PropostaLista({
             >
               <span
                 aria-hidden
-                className="mancha-3 grid size-14 shrink-0 place-items-center pt-1 font-extrabold text-2xl text-[var(--color-ink)] md:size-16 md:text-3xl"
+                className="mancha-3 grid size-14 shrink-0 place-items-center font-extrabold text-2xl text-[var(--color-ink)] md:size-16 md:text-3xl"
                 style={{ background: CORES[i % CORES.length] }}
               >
                 {String(i + 1).padStart(2, '0')}

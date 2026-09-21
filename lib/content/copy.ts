@@ -28,7 +28,7 @@ export const home = {
     tituloOnda: 'brincar.',
     apoio:
       'O Ateliê do Brincar recebe bebês e crianças pequenas em Ji‑Paraná. A rotina tem pintura, horta, minhocário, música e bastante tempo no quintal.',
-    selo: 'Casa nova a partir de 5/10',
+    selo: 'Vagas abertas o ano todo',
   },
 
   // [ig] projetos de junho e julho, [ficha] horta, música, inglês
@@ -106,13 +106,10 @@ export const home = {
   },
 
   novoEspaco: {
-    rotulo: 'Casa nova',
-    titulo: 'Rua Mato Grosso, 1928, a partir de 5 de outubro',
+    rotulo: 'Onde fica',
+    titulo: 'Rua Mato Grosso, 1928, bairro Casa Preta',
     texto:
-      'Uma casa térrea com gramado na frente, reformada com projeto de arquiteto. Berçário, Maternal I e Maternal II ficam em salas separadas.',
-    selo: 'Reinauguração 10/10',
-    reinauguracao:
-      'Sábado, 10 de outubro, véspera do Dia das Crianças. As famílias estão convidadas.',
+      'Uma casa térrea com gramado na frente, adaptada para crianças pequenas. Berçário, Maternal I e Maternal II têm salas separadas.',
     comoChegar: 'Como chegar',
   },
 
@@ -120,7 +117,7 @@ export const home = {
     selo: 'Em breve',
     titulo: 'Brinquedos Ateliê do Brincar',
     texto:
-      'A gente está preparando uma linha de brinquedos com a nossa marca. Eles vão ficar expostos na recepção da casa nova.',
+      'A gente está preparando uma linha de brinquedos com a nossa marca. Eles vão ficar expostos na recepção do Ateliê.',
   },
 
   visita: {
@@ -192,7 +189,7 @@ export const turmas = {
   },
   hero: {
     titulo: 'As turmas',
-    apoio: 'São três, separadas pela idade da criança. Na casa nova, cada uma tem a sua sala.',
+    apoio: 'São três, separadas pela idade da criança, e cada uma tem a sua sala.',
   },
   itens: [
     {
@@ -222,18 +219,14 @@ export const visite = {
   meta: {
     title: 'Agende uma visita',
     description:
-      'Agende uma visita ao Ateliê do Brincar na Rua Mato Grosso, 1928, Casa Preta, Ji-Paraná/RO. Casa nova a partir de 5 de outubro.',
+      'Agende uma visita ao Ateliê do Brincar na Rua Mato Grosso, 1928, Casa Preta, Ji-Paraná/RO.',
   },
   hero: {
     titulo: 'Agende uma visita',
     apoio:
       'Você conhece a casa, vê as crianças brincando e tira as dúvidas com a equipe. Pode trazer a sua criança.',
   },
-  datas: [
-    { data: 'Segunda, 5 de outubro', texto: 'O Ateliê começa a funcionar na casa nova.' },
-    { data: 'Sábado, 10 de outubro', texto: 'Reinauguração, com as famílias convidadas.' },
-  ],
-  horario: '[A_DEFINIR] horário de funcionamento da casa nova',
+  horario: '[A_DEFINIR] horário de funcionamento',
 } as const
 
 export const form = {
@@ -261,17 +254,16 @@ export const waTexto = {
   site: 'Oi! Vim pelo site e queria agendar uma visita ao Ateliê.',
   lp: 'Oi! Vi o anúncio e queria agendar uma visita ao Ateliê.',
   links: 'Oi! Vim pelo Instagram e queria agendar uma visita ao Ateliê.',
-  reinauguracao: 'Oi! Vim pelo Instagram e queria saber da reinauguração do dia 10/10.',
 } as const
 
 export const lp = {
   meta: {
     title: 'Agende uma visita ao Ateliê do Brincar',
     description:
-      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná. Agende uma visita à casa nova.',
+      'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná. Agende uma visita.',
   },
   hero: {
-    titulo: ['Visite a casa nova do'],
+    titulo: ['Agende uma visita ao'],
     tituloOnda: 'Ateliê.',
     apoio:
       'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji‑Paraná. Agende uma visita e veja as crianças brincando.',
@@ -287,12 +279,7 @@ export const links = {
       texto: 'Chame a gente no WhatsApp e marque um horário.',
       acao: 'Chamar no WhatsApp',
     },
-    {
-      titulo: 'Reinauguração 10/10',
-      texto: 'Sábado, véspera do Dia das Crianças, na casa nova.',
-      acao: 'Perguntar',
-    },
-    { titulo: 'Casa nova', texto: 'Rua Mato Grosso, 1928 · Casa Preta.', acao: 'Abrir no mapa' },
+    { titulo: 'Como chegar', texto: 'Rua Mato Grosso, 1928 · Casa Preta.', acao: 'Abrir no mapa' },
     { titulo: 'A proposta', texto: 'Como funciona o dia no Ateliê.', acao: 'Ler no site' },
     { titulo: 'Turmas', texto: 'Berçário, Maternal I e Maternal II.', acao: 'Ver as turmas' },
   ],

@@ -6,7 +6,9 @@ import { useEffect, useRef } from 'react'
  * "Animated gradient" do spell.sh (shader WebGL), portado:
  *  - sem next-themes (o site é só claro)
  *  - só anima quando está na tela (IntersectionObserver)
- *  - `paused` congela no quadro atual; prefers-reduced-motion começa parado
+ *  - anima ~4s quando aparece e depois SÓ enquanto a pessoa rola a página:
+ *    movimento comandado pela rolagem dispensa botão de pausa (NBR 17225)
+ *  - prefers-reduced-motion: um quadro parado
  *  - sem WebGL2, não desenha nada e o fundo sólido do pai aparece
  *
  * Cores: violeta da marca e dois tons vizinhos, escolhidos pra texto branco
@@ -52,11 +54,9 @@ export const ATELIE_GRADIENTE: Params = {
 
 export function AnimatedGradient({
   params = ATELIE_GRADIENTE,
-  paused = false,
   className,
 }: {
   params?: Params
-  paused?: boolean
   className?: string
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -65,21 +65,17 @@ export function AnimatedGradient({
   const runningRef = useRef(false)
   const visibleRef = useRef(false)
   const reducedRef = useRef(false)
-  const pausedRef = useRef(paused)
+  const ativoAteRef = useRef(0)
   const kickRef = useRef<() => void>(() => {})
 
-  const sync = () => {
-    const should = visibleRef.current && !pausedRef.current && !reducedRef.current
-    if (should !== runningRef.current) {
-      runningRef.current = should
-      if (should) kickRef.current()
+  const acordar = (ms: number) => {
+    if (!visibleRef.current || reducedRef.current) return
+    ativoAteRef.current = Math.max(ativoAteRef.current, performance.now() + ms)
+    if (!runningRef.current) {
+      runningRef.current = true
+      kickRef.current()
     }
   }
-
-  useEffect(() => {
-    pausedRef.current = paused
-    sync()
-  })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -192,7 +188,9 @@ export function AnimatedGradient({
       gl.uniform1f(uniforms.u_swirlIterations, params.swirl === 0 ? 0 : params.swirlIterations)
 
       gl.drawArrays(gl.TRIANGLES, 0, 6)
-      if (runningRef.current) frameIdRef.current = requestAnimationFrame(draw)
+      if (runningRef.current && time < ativoAteRef.current)
+        frameIdRef.current = requestAnimationFrame(draw)
+      else runningRef.current = false
     }
 
     // desenha pelo menos um quadro (fica parado com pausa ou movimento reduzido)
@@ -204,15 +202,19 @@ export function AnimatedGradient({
     }
 
     const io = new IntersectionObserver(([e]) => {
+      const entrou = Boolean(e?.isIntersecting) && !visibleRef.current
       visibleRef.current = Boolean(e?.isIntersecting)
-      sync()
+      if (entrou) acordar(4000)
     })
     io.observe(container)
+    const onScroll = () => acordar(900)
+    window.addEventListener('scroll', onScroll, { passive: true })
 
     return () => {
       runningRef.current = false
       if (frameIdRef.current !== undefined) cancelAnimationFrame(frameIdRef.current)
       io.disconnect()
+      window.removeEventListener('scroll', onScroll)
       resizeObserver.disconnect()
       gl.deleteProgram(program)
       gl.deleteShader(vertexShader)

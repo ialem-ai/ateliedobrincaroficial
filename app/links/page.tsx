@@ -6,7 +6,7 @@ import { site, wa } from '@/config/site'
 import { links, waTexto } from '@/lib/content/copy'
 
 /**
- * Linkbio do Instagram. noindex, fora do sitemap, 5 links.
+ * Linkbio do Instagram. noindex, fora do sitemap, 4 links.
  * Padrão da casa: card horizontal com foto, altura fixa (variants/linkbio.md).
  */
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/links' },
 }
 
-const [visita, reinauguracao, endereco, proposta, turmas] = links.itens
+const [visita, endereco, proposta, turmas] = links.itens
 
 const LINKS = [
   {
@@ -27,17 +27,10 @@ const LINKS = [
     cor: 'var(--color-gema)',
   },
   {
-    ...reinauguracao,
-    href: wa(waTexto.reinauguracao),
-    foto: '/fotos/novo-espaco.jpg',
-    pos: '60% 50%',
-    cor: 'var(--color-menta)',
-  },
-  {
     ...endereco,
     href: site.mapsUrl,
-    foto: '/fotos/degustacao.jpg',
-    pos: '50% 50%',
+    foto: '/fotos/novo-espaco.jpg',
+    pos: '60% 50%',
     cor: 'var(--color-ceu)',
   },
   {

@@ -13,7 +13,6 @@ export const metadata: Metadata = {
 
 /*
  * 01 abertura + endereço   E16  NAP em texto + link de rota, sem iframe
- * 02 datas                 E08  linha do tempo curta: 5/10 e 10/10
  * 03 formulário            E17
  */
 export default function VisitePage() {
@@ -28,7 +27,7 @@ export default function VisitePage() {
             </p>
           </div>
           <address className="self-end rounded-[var(--radius-card)] bg-[var(--color-ceu)] p-7 text-[var(--color-ink)] not-italic md:col-span-5 md:p-9">
-            <p className="text-label">Nova unidade</p>
+            <p className="text-label">Endereço</p>
             <p className="mt-4 flex gap-2 font-bold text-xl">
               <MapPin aria-hidden className="mt-0.5 size-5 shrink-0" />
               <span>
@@ -53,25 +52,6 @@ export default function VisitePage() {
               Como chegar
             </a>
           </address>
-        </Container>
-      </section>
-
-      <section className="pb-16 md:pb-20">
-        <Container>
-          <ol className="relative ml-3 border-[var(--color-violeta)] border-l-[3px] border-dashed pl-8 md:ml-4">
-            {visite.datas.map((d) => (
-              <li key={d.data} className="relative pb-8 last:pb-0">
-                <span
-                  aria-hidden
-                  className="absolute top-1 -left-[47px] size-6 rounded-full border-4 border-[var(--color-talco)] bg-[var(--color-magenta)]"
-                />
-                <p className="font-extrabold text-2xl text-[var(--color-violeta)] md:text-3xl">
-                  {d.data}
-                </p>
-                <p className="mt-1 text-lg">{d.texto}</p>
-              </li>
-            ))}
-          </ol>
         </Container>
       </section>
 

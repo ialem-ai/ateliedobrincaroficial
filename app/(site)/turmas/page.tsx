@@ -97,7 +97,7 @@ export default function TurmasPage() {
                 )}
               >
                 <p
-                  className="inline-block rounded-full px-4 pt-2 pb-1.5 font-bold text-[var(--color-ink)]"
+                  className="inline-block rounded-full px-4 py-2 font-bold text-[var(--color-ink)]"
                   style={{ background: `var(--color-${t.cor})` }}
                 >
                   {t.faixa}

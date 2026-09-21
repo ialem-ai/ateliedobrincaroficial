@@ -21,7 +21,7 @@ function mascara(v: string) {
 }
 
 const campo =
-  'block w-full rounded-2xl border-2 border-transparent bg-white px-4 pt-3.5 pb-3 text-[var(--color-ink)] text-lg outline-none transition-colors placeholder:text-[var(--color-ink-soft)]/60 focus:border-[var(--color-gema)] aria-[invalid=true]:border-[var(--color-mecanica)]'
+  'block w-full rounded-2xl border-2 border-transparent bg-white px-4 py-3.5 text-[var(--color-ink)] text-lg outline-none transition-colors placeholder:text-[var(--color-ink-soft)]/60 focus:border-[var(--color-gema)] aria-[invalid=true]:border-[var(--color-mecanica)]'
 
 export function VisitaForm({ origem }: { origem: 'site' | 'lp' | 'visite' }) {
   const [estado, setEstado] = useState<'livre' | 'ok' | 'erro'>('livre')

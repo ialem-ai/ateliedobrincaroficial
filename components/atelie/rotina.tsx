@@ -103,7 +103,7 @@ export function Rotina({ titulo, apoio }: { titulo: string; apoio?: string }) {
                     style={{ objectPosition: f.pos }}
                   />
                 </div>
-                <figcaption className="mt-2 pt-1 font-bold text-[var(--color-ink-soft)] text-sm">
+                <figcaption className="mt-2 font-bold text-[var(--color-ink-soft)] text-sm">
                   {f.legenda}
                 </figcaption>
               </figure>

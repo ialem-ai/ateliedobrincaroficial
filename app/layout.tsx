@@ -1,16 +1,31 @@
 import type { Metadata, Viewport } from 'next'
-import { Baloo_Tammudu_2 } from 'next/font/google'
+import localFont from 'next/font/local'
 import { MotionProvider } from '@/components/providers/motion-provider'
 import { SmoothScroll } from '@/components/providers/smooth-scroll'
 import { Analytics } from '@/components/tracking/analytics'
 import { site } from '@/config/site'
 import './globals.css'
 
-// A mesma fonte do manual. Variable (400 a 800), então não precisa de weight.
-const baloo = Baloo_Tammudu_2({
-  subsets: ['latin', 'latin-ext'],
+/*
+ * Baloo Tammudu 2, a fonte do manual, hospedada aqui só com as letras latinas
+ * (38 kB, pesos 400 a 800).
+ *
+ * Por que não next/font/google: é uma fonte télugo, e as métricas verticais
+ * reservam espaço pros caracteres télugos (ascender 1177, descender 1119 em
+ * 1000). O texto latino fica deslocado pra cima dentro da própria caixa, e todo
+ * botão, selo e pílula sai desalinhado. Os overrides abaixo recentram a caixa
+ * na altura das maiúsculas (0 a 602) e dos acentos (até 820).
+ */
+const baloo = localFont({
+  src: './fonts/baloo-tammudu-2-latin.woff2',
+  weight: '400 800',
   variable: '--font-baloo',
   display: 'swap',
+  declarations: [
+    { prop: 'ascent-override', value: '95%' },
+    { prop: 'descent-override', value: '35%' },
+    { prop: 'line-gap-override', value: '0%' },
+  ],
 })
 
 export const metadata: Metadata = {

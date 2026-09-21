@@ -47,15 +47,7 @@ export const site = {
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Rua+Mato+Grosso%2C+1928%2C+Casa+Preta%2C+Ji-Paran%C3%A1+-+RO%2C+76907-616',
 
-  /** Nova unidade. Datas do aviso oficial às famílias (16/09). */
-  mudanca: {
-    abreEm: '2026-10-05',
-    abreEmTexto: '5 de outubro',
-    reinauguracao: '2026-10-10',
-    reinauguracaoTexto: '10 de outubro',
-  },
-
-  /** [A_DEFINIR] horário da nova unidade. Não aparece em nenhuma mensagem. */
+  /** [A_DEFINIR] horário de funcionamento. Não aparece em nenhuma mensagem. */
   hours: null as null | string,
 
   social: {
