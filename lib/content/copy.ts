@@ -254,7 +254,7 @@ export const form = {
     `Oi! Sou ${nome.trim().split(' ')[0]}, acabei de pedir uma visita pelo site. ${
       idade.startsWith('Ainda')
         ? 'Meu bebê ainda está a caminho.'
-        : `Minha criança tem ${idade.toLowerCase()}.`
+        : `Minha criança tem ${idade.includes(' a ') ? `entre ${idade.replace(' a ', ' e ')}` : idade.toLowerCase()}.`
     }`,
 } as const
 
