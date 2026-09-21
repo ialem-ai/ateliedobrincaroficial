@@ -18,6 +18,15 @@ import { telefoneE164 } from '@/lib/telefone'
  */
 const PORTAL_INGEST = 'https://crm.improvemarketing.com.br/api/crm/ingest/form'
 
+/*
+ * Repasse: o domínio é servido por um projeto Vercel da conta do cliente, onde
+ * não temos acesso às envvars. Lá as chaves não existem, então esta rota
+ * repassa o pedido (servidor a servidor) pro projeto da Improve, que tem as
+ * chaves. No projeto da Improve as chaves existem e o repasse nunca acontece.
+ * O cabeçalho x-adb-repasse impede laço caso as chaves sumam dos dois lados.
+ */
+const REPASSE_URL = process.env.LEAD_RELAY_URL || 'https://atelie-do-brincar.vercel.app/api/lead'
+
 const ORIGEM: Record<string, string> = {
   site: 'Site · Agendar visita',
   visite: 'Site · Página Visite',
@@ -37,6 +46,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'invalid_input' }, { status: 400 })
   }
   const d = parsed.data
+
+  const temChaves = Boolean(process.env.PORTAL_CRM_KEY || process.env.RESEND_API_KEY)
+  if (!temChaves && !req.headers.get('x-adb-repasse')) {
+    try {
+      const r = await fetch(REPASSE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-adb-repasse': '1',
+          referer: req.headers.get('referer') || '',
+          'user-agent': req.headers.get('user-agent') || '',
+        },
+        body: JSON.stringify(d),
+        signal: AbortSignal.timeout(12000),
+      })
+      return NextResponse.json(await r.json().catch(() => ({})), { status: r.status })
+    } catch (e) {
+      console.error('[lead] repasse falhou:', e)
+      return NextResponse.json({ error: 'relay_failed' }, { status: 502 })
+    }
+  }
 
   const suspeito = Boolean(d.adb_confere)
   if (suspeito) console.warn('[lead] campo-armadilha preenchido:', req.headers.get('user-agent'))
