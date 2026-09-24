@@ -5,7 +5,7 @@
  *  - Posicionamento, persona, produtos: ficha do cliente no Ops (client_profiles)
  *  - Endereço novo e datas: grupo "Improve & Ateliê - Mudança & Inauguração"
  *    (Ana Flávia, 10/09) e aviso do Ateliê no grupo de pais (15 e 16/09)
- *  - Turmas e faixas: Ateliê no grupo principal, 10/06/2026
+ *  - Turmas e faixas: reunião de alinhamento 21/09/2026 + ajustes do cliente 24/09
  *  - Razão social e CNPJ: registro do domínio no Registro.br
  */
 

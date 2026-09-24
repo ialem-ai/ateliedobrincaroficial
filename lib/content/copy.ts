@@ -17,7 +17,8 @@
  * Fonte de cada fato:
  *  [ficha]  client_profiles no Ops
  *  [ig]     legendas do @ateliedobrincaroficial (jun a set/2026)
- *  [grupo]  WhatsApp do Ateliê (turmas 10/06; endereço e datas 10 a 16/09)
+ *  [grupo]  WhatsApp do Ateliê (endereço e datas 10 a 16/09)
+ *  [reunião] alinhamento de 21/09 no Ops: quatro turmas, uma por idade
  */
 
 export const home = {
@@ -88,7 +89,7 @@ export const home = {
       { nome: 'Maternal II', faixa: '2 anos a 2 anos e 11 meses' },
       { nome: 'Maternal III', faixa: '3 anos a 3 anos e 11 meses' },
     ],
-    nota: 'Vagas abertas o ano todo.',
+    nota: 'Uma turma para cada idade. Vagas abertas o ano todo.',
   },
 
   rotina: {
@@ -161,12 +162,13 @@ export const proposta = {
     ],
   },
   contraste: {
-    titulo: 'Só para quem tem até 3 anos',
+    // reunião 21/09: aos 4 anos a pré-escola é obrigatória, por isso param nos 3 anos e 11 meses
+    titulo: 'Só para quem ainda não fez 4 anos',
     sim: {
       titulo: 'No Ateliê',
       itens: [
-        'Todas as crianças têm de 6 meses a 3 anos',
-        'Uma sala para cada turma',
+        'Todas as crianças têm de 6 meses a 3 anos e 11 meses',
+        'Uma sala para cada idade',
         'Espaços separados por atividade',
         'Tempo no quintal todos os dias',
       ],
@@ -191,7 +193,10 @@ export const turmas = {
   },
   hero: {
     titulo: 'As turmas',
-    apoio: 'São quatro, separadas pela idade da criança, e cada uma tem a sua sala.',
+    // reunião 21/09: uma turma por idade, cada uma com sala e profissionais próprias;
+    // a troca de turma começa no mês do aniversário
+    apoio:
+      'Uma turma para cada idade, cada uma com a sua sala e as suas profissionais. No mês em que faz aniversário, a criança começa a passar para a turma seguinte.',
   },
   itens: [
     {
@@ -217,9 +222,8 @@ export const turmas = {
     {
       nome: 'Maternal III',
       faixa: '3 anos a 3 anos e 11 meses',
-      // [A_CONFIRMAR] texto nosso, o cliente só mandou a faixa
-      texto:
-        'Os mais velhos do Ateliê. Já contam o que fizeram no dia e inventam as próprias regras da brincadeira.',
+      // reunião 21/09: aos 4 anos a pré-escola passa a ser obrigatória
+      texto: 'A turma dos 3 anos, a última antes da pré-escola.',
       cor: 'ceu',
     },
   ],
