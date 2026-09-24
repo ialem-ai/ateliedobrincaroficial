@@ -29,11 +29,16 @@ const FOTO: Record<string, { src: string; alt: string; pos: string }> = {
     alt: 'Menina pintando com esponja e tinta colorida',
     pos: '50% 40%',
   },
+  'Maternal III': {
+    src: '/fotos/minhocario.jpg',
+    alt: 'Duas meninas rindo sentadas na grama, com um minhocário de terra na frente',
+    pos: '50% 60%',
+  },
 }
 
 /*
  * 01 abertura   só tipografia, sem foto (a foto vem nas turmas)
- * 02 turmas     E03 alternado: foto em mancha + chapa de cor + texto, 3 vezes
+ * 02 turmas     E03 alternado: foto em mancha + chapa de cor + texto, uma por turma
  *               (o lado troca a cada turma, e a cor também)
  * 03 visita     E17
  */

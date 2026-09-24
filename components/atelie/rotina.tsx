@@ -3,7 +3,6 @@ import { Reveal } from '@/components/animations/reveal'
 import { SlideUp } from '@/components/effects/slide-up'
 import { Container } from '@/components/ui/container'
 import { site } from '@/config/site'
-import { cn } from '@/lib/cn'
 import { home } from '@/lib/content/copy'
 
 const L = home.rotina.legendas
@@ -32,13 +31,6 @@ export const FOTOS_ROTINA = [
     alt: 'Menina mexendo numa bacia com água amarela e flores de papel',
     pos: '50% 50%',
     legenda: L.bacia,
-  },
-  {
-    src: '/fotos/degustacao.jpg',
-    alt: 'Educadora e crianças sentadas numa toalha na grama, com uma cesta de frutas',
-    pos: '50% 50%',
-    legenda: L.degustacao,
-    largo: true,
   },
   {
     src: '/fotos/boliche.jpg',
@@ -75,30 +67,16 @@ export function Rotina({ titulo, apoio }: { titulo: string; apoio?: string }) {
             </div>
           ) : null}
         </div>
-        <ul className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
           {FOTOS_ROTINA.map((f, i) => (
-            <Reveal
-              as="li"
-              key={f.src}
-              delay={Math.min(i, 5) * 0.05}
-              className={cn('group', 'largo' in f && f.largo && 'col-span-2')}
-            >
+            <Reveal as="li" key={f.src} delay={Math.min(i, 5) * 0.05} className="group">
               <figure>
-                <div
-                  className={cn(
-                    'relative overflow-hidden rounded-[var(--radius-media)]',
-                    'largo' in f && f.largo ? 'aspect-[4/3] md:aspect-[16/10]' : 'aspect-[4/5]'
-                  )}
-                >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-media)]">
                   <Image
                     src={f.src}
                     alt={f.alt}
                     fill
-                    sizes={
-                      'largo' in f && f.largo
-                        ? '(min-width: 768px) 50vw, 100vw'
-                        : '(min-width: 768px) 25vw, 50vw'
-                    }
+                    sizes="(min-width: 768px) 33vw, 50vw"
                     className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-brand)] group-hover:scale-[1.04]"
                     style={{ objectPosition: f.pos }}
                   />

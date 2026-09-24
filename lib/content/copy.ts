@@ -24,10 +24,11 @@ export const home = {
   hero: {
     rotulo: 'Desenvolvimento infantil · 6 meses a 3 anos',
     // a última palavra ganha a onda de cores do logo
-    titulo: ['Tinta na mão, pé na terra e muito'],
-    tituloOnda: 'brincar.',
+    // texto do cliente (ajustes 24/09)
+    titulo: ['Aqui, brincar é coisa'],
+    tituloOnda: 'séria!',
     apoio:
-      'O Ateliê do Brincar recebe bebês e crianças pequenas em Ji‑Paraná. A rotina tem pintura, horta, minhocário, música e bastante tempo no quintal.',
+      'No Ateliê do Brincar, bebê brinca, experimenta, se suja, inventa, descobre e aprende. Tudo isso com liberdade, afeto e um montão de experiências para viver a primeira infância do jeito que ela merece.',
     selo: 'Vagas abertas o ano todo',
   },
 
@@ -50,40 +51,42 @@ export const home = {
 
   proposta: {
     titulo: 'Como é o dia por aqui',
+    // texto do cliente (ajustes 24/09)
     itens: [
       {
-        titulo: 'A criança escolhe',
+        titulo: 'Liberdade para explorar',
         texto:
-          'O ambiente fica preparado com tinta, água, terra e brinquedos de encaixe. Ela decide por onde começar, e a educadora acompanha de perto.',
+          'Preparamos o ambiente para que cada criança possa escolher, experimentar e descobrir no seu próprio ritmo. A gente acompanha de perto, dando espaço para que ela faça por si.',
       },
       {
-        // [ficha] ambientes separados por atividade
-        titulo: 'Cada atividade no seu canto',
+        titulo: 'O ambiente também ensina',
         texto:
-          'Pintura tem um espaço, música tem outro. Assim a brincadeira não se mistura e a criança consegue se concentrar.',
+          'Cada espaço, material e experiência é pensado para despertar a curiosidade e convidar a criança a explorar. Aqui, aprender acontece também com as mãos, com o corpo e com os sentidos.',
       },
       {
-        titulo: 'Quintal todo dia',
+        titulo: 'Brincar é coisa séria por aqui',
         texto:
-          'Horta, minhocário, bacia de água no gramado. Voltar para casa com a roupa manchada faz parte.',
+          'É brincando que a criança experimenta, cria, resolve problemas, desenvolve habilidades e entende o mundo ao seu redor. Por isso, o brincar ocupa um lugar central no nosso dia.',
       },
       {
-        titulo: 'Junto com outras crianças',
+        titulo: 'Natureza, movimento e convivência',
         texto:
-          'Na hora da fruta, da roda de música e do parquinho, uma aprende com a outra a esperar a vez.',
+          'Tem terra, água, plantas, música, movimento, quintal e, claro, outras crianças. São experiências que ajudam os pequenos a desenvolver autonomia, confiança e diferentes formas de se relacionar com o mundo.',
       },
     ],
     link: 'Ler sobre a proposta',
-    referencias: 'A proposta se inspira em Reggio Emilia e Montessori.',
+    referencias:
+      'Cada dia traz novas descobertas, em um ambiente preparado para a criança explorar, brincar e crescer no seu próprio ritmo.',
   },
 
   turmas: {
     titulo: 'As turmas',
-    // [grupo] Ateliê, 10/06/2026
+    // ajustes do cliente, 24/09/2026 (entrou o Maternal III)
     itens: [
-      { nome: 'Berçário', faixa: '6 meses a 1 ano e meio' },
-      { nome: 'Maternal I', faixa: '1 ano e meio a 2 anos e meio' },
-      { nome: 'Maternal II', faixa: '2 anos e meio a 3 anos' },
+      { nome: 'Berçário', faixa: '6 meses a 1 ano' },
+      { nome: 'Maternal I', faixa: '1 ano a 1 ano e 11 meses' },
+      { nome: 'Maternal II', faixa: '2 anos a 2 anos e 11 meses' },
+      { nome: 'Maternal III', faixa: '3 anos a 3 anos e 11 meses' },
     ],
     nota: 'Vagas abertas o ano todo.',
   },
@@ -99,7 +102,6 @@ export const home = {
       esponja: 'Pintura com esponja',
       horta: 'Horta',
       bacia: 'Explorando a colmeia',
-      degustacao: 'Fruta no quintal',
       boliche: 'Boliche das Emoções',
       tintaVerde: 'A tinta que vem do verde',
     },
@@ -109,7 +111,7 @@ export const home = {
     rotulo: 'Onde fica',
     titulo: 'Rua Mato Grosso, 1928, bairro Casa Preta',
     texto:
-      'Uma casa térrea com gramado na frente, adaptada para crianças pequenas. Berçário, Maternal I e Maternal II têm salas separadas.',
+      'Uma casa térrea com gramado na frente, adaptada para crianças pequenas. Cada turma tem a sua sala.',
     comoChegar: 'Como chegar',
   },
 
@@ -117,7 +119,7 @@ export const home = {
     selo: 'Em breve',
     titulo: 'Brinquedos Ateliê do Brincar',
     texto:
-      'A gente está preparando uma linha de brinquedos com a nossa marca. Eles vão ficar expostos na recepção do Ateliê.',
+      'Estamos preparando uma novidade que vai fazer a brincadeira sair do Ateliê e chegar até a sua casa.',
   },
 
   visita: {
@@ -185,32 +187,40 @@ export const turmas = {
   meta: {
     title: 'Turmas',
     description:
-      'Berçário, Maternal I e Maternal II: as turmas do Ateliê do Brincar em Ji-Paraná, para crianças de 6 meses a 3 anos.',
+      'Berçário, Maternal I, II e III: as turmas do Ateliê do Brincar em Ji-Paraná, para crianças de 6 meses a 3 anos.',
   },
   hero: {
     titulo: 'As turmas',
-    apoio: 'São três, separadas pela idade da criança, e cada uma tem a sua sala.',
+    apoio: 'São quatro, separadas pela idade da criança, e cada uma tem a sua sala.',
   },
   itens: [
     {
       nome: 'Berçário',
-      faixa: '6 meses a 1 ano e meio',
+      faixa: '6 meses a 1 ano',
       texto:
         'Para quem está aprendendo a sentar, engatinhar e andar. Muito chão livre, som de chocalho e textura para explorar com as mãos.',
       cor: 'baby',
     },
     {
       nome: 'Maternal I',
-      faixa: '1 ano e meio a 2 anos e meio',
+      faixa: '1 ano a 1 ano e 11 meses',
       texto:
         'A idade de querer fazer tudo sozinho: comer, subir, abrir, fechar. A gente deixa tentar e fica do lado.',
       cor: 'menta',
     },
     {
       nome: 'Maternal II',
-      faixa: '2 anos e meio a 3 anos',
+      faixa: '2 anos a 2 anos e 11 meses',
       texto: 'Chegam o faz de conta, as perguntas sem fim e os primeiros amigos.',
       cor: 'gema',
+    },
+    {
+      nome: 'Maternal III',
+      faixa: '3 anos a 3 anos e 11 meses',
+      // [A_CONFIRMAR] texto nosso, o cliente só mandou a faixa
+      texto:
+        'Os mais velhos do Ateliê. Já contam o que fizeram no dia e inventam as próprias regras da brincadeira.',
+      cor: 'ceu',
     },
   ],
 } as const
@@ -222,9 +232,10 @@ export const visite = {
       'Agende uma visita ao Ateliê do Brincar na Rua Mato Grosso, 1928, Casa Preta, Ji-Paraná/RO.',
   },
   hero: {
-    titulo: 'Agende uma visita',
+    // texto do cliente (ajustes 24/09)
+    titulo: 'Venha viver o Ateliê de perto!',
     apoio:
-      'Você conhece a casa, vê as crianças brincando e tira as dúvidas com a equipe. Pode trazer a sua criança.',
+      'Conheça nosso espaço, descubra como acontece a nossa rotina e veja de perto um lugar pensado para a criança brincar, explorar e se desenvolver.',
   },
   horario: '[A_DEFINIR] horário de funcionamento',
 } as const
@@ -235,9 +246,10 @@ export const form = {
   idade: 'Idade da criança',
   idades: [
     'Menos de 6 meses',
-    '6 meses a 1 ano e meio',
-    '1 ano e meio a 2 anos e meio',
-    '2 anos e meio a 3 anos',
+    '6 meses a 1 ano',
+    '1 ano a 1 ano e 11 meses',
+    '2 anos a 2 anos e 11 meses',
+    '3 anos a 3 anos e 11 meses',
     'Ainda está a caminho',
   ],
   enviar: 'Agendar uma visita',
@@ -286,10 +298,11 @@ export const lp = {
   },
   hero: {
     chamada: 'Para mães e pais de Ji‑Paraná com filho de 6 meses a 3 anos',
-    titulo: 'Veja o Ateliê funcionando antes de',
-    tituloOnda: 'decidir.',
+    // texto do cliente (ajustes 24/09)
+    titulo: 'Antes de imaginar, venha viver o',
+    tituloOnda: 'Ateliê.',
     apoio:
-      'Escolher onde deixar um filho pequeno é difícil, a gente sabe. Na visita você conhece as salas, vê a rotina das turmas e conversa com a equipe.',
+      'Uma visita para conhecer nossos espaços, saber um pouquinho da rotina e descobrir como transformamos o brincar, as experiências e o cuidado em desenvolvimento.',
     cta: 'Agendar minha visita',
     nota: 'Leva menos de 1 minuto. A equipe chama você no WhatsApp.',
   },
@@ -309,7 +322,7 @@ export const lp = {
       {
         pergunta: 'Meu filho não é pequeno demais?',
         resposta:
-          'A partir do Berçário, o convívio com outras crianças e os estímulos certos já fazem diferença no desenvolvimento. Os bebês ficam numa turma só deles, de 6 meses a 1 ano e meio.',
+          'A partir do Berçário, o convívio com outras crianças e os estímulos certos já fazem diferença no desenvolvimento. Os bebês ficam numa turma só deles, de 6 meses a 1 ano.',
         foto: '/fotos/boliche.jpg',
         alt: 'Bebê sentado na grama segurando pinos coloridos de boliche',
         pos: '50% 55%',

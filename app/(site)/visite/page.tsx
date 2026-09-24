@@ -21,7 +21,7 @@ export default function VisitePage() {
       <section className="pt-10 pb-12 md:pt-16 md:pb-16">
         <Container className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
-            <h1 className="text-display max-w-[10ch]">{visite.hero.titulo}</h1>
+            <h1 className="text-display max-w-[13ch]">{visite.hero.titulo}</h1>
             <p className="mt-6 max-w-[42ch] text-[var(--color-ink-soft)] text-lg md:text-xl">
               {visite.hero.apoio}
             </p>
