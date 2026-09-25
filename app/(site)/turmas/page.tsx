@@ -47,7 +47,7 @@ export default function TurmasPage() {
     <>
       <section className="pt-10 pb-8 md:pt-16 md:pb-12">
         <Container>
-          <h1 className="text-display max-w-[14ch]">{turmas.hero.titulo}</h1>
+          <h1 className="text-display max-w-[15ch] [text-wrap:balance]">{turmas.hero.titulo}</h1>
           <p className="mt-6 max-w-[46ch] text-[var(--color-ink-soft)] text-lg md:text-xl">
             {turmas.hero.apoio}
           </p>
@@ -114,6 +114,11 @@ export default function TurmasPage() {
                   stagger={0.05}
                   className="text-display mt-4"
                 />
+                {'destaque' in t ? (
+                  <p className="mt-4 font-extrabold text-2xl text-[var(--color-ink)] md:text-3xl">
+                    {t.destaque}
+                  </p>
+                ) : null}
                 <p className="mt-4 max-w-[44ch] text-lg md:text-xl">{t.texto}</p>
               </Reveal>
             </Container>

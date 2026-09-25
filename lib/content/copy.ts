@@ -33,7 +33,7 @@ export const home = {
     selo: 'Vagas abertas o ano todo',
   },
 
-  // [ig] projetos de junho e julho, [ficha] horta, música, inglês
+  // [ig] projetos de junho e julho, [ficha] horta, música (inglês saiu a pedido do cliente, 25/09)
   palavras: [
     'tinta',
     'terra',
@@ -41,7 +41,6 @@ export const home = {
     'horta',
     'bacia de água',
     'música',
-    'inglês',
     'fruta no quintal',
     'balão',
   ],
@@ -137,35 +136,42 @@ export const proposta = {
       'Brincar livre, ambientes separados por atividade e tempo no quintal. Como funciona o dia no Ateliê do Brincar, em Ji-Paraná.',
   },
   hero: {
-    titulo: 'Como a gente trabalha',
+    // texto do cliente (ajustes 25/09)
+    titulo: 'Um dia cheio de pequenas grandes descobertas.',
     apoio:
-      'A proposta do Ateliê se inspira em Reggio Emilia e Montessori. Na prática, isso quer dizer ambiente preparado, material ao alcance da mão e adulto que observa antes de interferir.',
+      'Tudo começa com um ambiente preparado para despertar curiosidade. A criança escolhe, experimenta, brinca, observa e descobre. A gente acompanha de perto, respeitando seu tempo e criando novas possibilidades para ela explorar.',
   },
   manifesto: [
     'Numa manhã comum, uma criança fica na bacia de água enquanto a do lado pinta com esponja. Cada uma termina quando termina.',
     'Antes da turma chegar, as educadoras deixam o espaço pronto: tinta, terra, água, brinquedos de encaixe. Depois observam o que chamou a atenção de cada criança.',
-    'No meio disso tem fruta no quintal, roda de música, um pouco de inglês e visita à horta.',
+    'No meio disso tem fruta no quintal, roda de música e visita à horta.',
   ],
-  destaque: 'Quem escolhe a brincadeira é a criança.',
+  destaque: 'Por aqui, a curiosidade é quem dá o primeiro passo.',
   diaADia: {
     titulo: 'Faz parte da semana',
     itens: [
-      { titulo: 'Horta', texto: 'As crianças plantam, regam e depois provam o que nasceu.' },
+      // o primeiro item ganha o cartão grande com foto (ajustes 25/09: faz de conta no lugar da horta)
+      {
+        titulo: 'Faz de conta',
+        texto: 'Roda de história, livro aberto no chão e personagem inventado na hora.',
+      },
       {
         titulo: 'Tinta, terra e água',
         texto: 'Com a mão, com o pé, com esponja. A roupa volta manchada.',
       },
       { titulo: 'Parquinho', texto: 'Subir, escorregar, cair e levantar de novo.' },
       { titulo: 'Música', texto: 'Roda de cantiga, instrumento na mão e balão subindo.' },
-      { titulo: 'Inglês', texto: 'Palavras e músicas em inglês no meio da brincadeira.' },
       { titulo: 'Alimentação saudável', texto: 'Fruta, legume e degustação no quintal.' },
     ],
   },
   contraste: {
     // reunião 21/09: aos 4 anos a pré-escola é obrigatória, por isso param nos 3 anos e 11 meses
     titulo: 'Só para quem ainda não fez 4 anos',
+    // ajustes 25/09: a coluna branca parecia descrever o Ateliê; agora cada lado diz de quem é
+    apoio:
+      'Em muitos lugares, bebês e crianças maiores dividem a mesma sala. Aqui, cada idade tem o seu espaço. Veja a diferença:',
     sim: {
-      titulo: 'No Ateliê',
+      titulo: 'Aqui no Ateliê',
       itens: [
         'Todas as crianças têm de 6 meses a 3 anos e 11 meses',
         'Uma sala para cada idade',
@@ -174,11 +180,11 @@ export const proposta = {
       ],
     },
     nao: {
-      titulo: 'Em espaços para todas as idades',
+      titulo: 'O que é comum em outros lugares',
       itens: [
-        'Bebês dividem o espaço com crianças bem maiores',
-        'A mesma sala serve para tudo',
-        'A atividade é igual para todos, na mesma hora',
+        'Bebês dividem a sala com crianças bem maiores',
+        'A mesma sala para tudo',
+        'Todo mundo faz a mesma atividade, na mesma hora',
         'Pouco tempo fora da sala',
       ],
     },
@@ -192,38 +198,40 @@ export const turmas = {
       'Berçário, Maternal I, II e III: as turmas do Ateliê do Brincar em Ji-Paraná, para crianças de 6 meses a 3 anos.',
   },
   hero: {
-    titulo: 'As turmas',
-    // reunião 21/09: uma turma por idade, cada uma com sala e profissionais próprias;
-    // a troca de turma começa no mês do aniversário
+    // texto do cliente (ajustes 25/09)
+    titulo: 'Cada idade, um novo mundo para explorar.',
     apoio:
-      'Uma turma para cada idade, cada uma com a sua sala e as suas profissionais. No mês em que faz aniversário, a criança começa a passar para a turma seguinte.',
+      'As crianças estão sempre descobrindo algo novo. Por isso, cada turma é pensada para acompanhar as características e necessidades de cada fase, com seu próprio espaço e uma equipe que conhece de perto o momento de cada criança.',
   },
+  // textos do cliente (ajustes 25/09)
   itens: [
     {
       nome: 'Berçário',
       faixa: '6 meses a 1 ano',
+      destaque: 'Cada movimento é uma descoberta.',
       texto:
-        'Para quem está aprendendo a sentar, engatinhar e andar. Muito chão livre, som de chocalho e textura para explorar com as mãos.',
+        'Rolar, alcançar, engatinhar, levantar, dar os primeiros passos... No Berçário, o bebê encontra um ambiente preparado para explorar livremente, desenvolver seus movimentos e conquistar novas descobertas no seu próprio ritmo.',
       cor: 'baby',
     },
     {
       nome: 'Maternal I',
       faixa: '1 ano a 1 ano e 11 meses',
       texto:
-        'A idade de querer fazer tudo sozinho: comer, subir, abrir, fechar. A gente deixa tentar e fica do lado.',
+        '“Eu consigo!” vira a frase do dia. Comer sozinho, subir, abrir, fechar, escolher, tentar de novo... Por aqui, cada conquista ganha espaço e cada tentativa é parte da descoberta.',
       cor: 'menta',
     },
     {
       nome: 'Maternal II',
       faixa: '2 anos a 2 anos e 11 meses',
-      texto: 'Chegam o faz de conta, as perguntas sem fim e os primeiros amigos.',
+      texto:
+        'Por quê? O que é isso? E aquilo? E como funciona? As perguntas não param, as ideias aparecem o tempo todo e as amizades começam a ganhar um lugar especial nas descobertas.',
       cor: 'gema',
     },
     {
       nome: 'Maternal III',
       faixa: '3 anos a 3 anos e 11 meses',
-      // reunião 21/09: aos 4 anos a pré-escola passa a ser obrigatória
-      texto: 'A turma dos 3 anos, a última antes da pré-escola.',
+      texto:
+        'As ideias ficam maiores, as brincadeiras ganham novas histórias e a curiosidade não para de crescer.',
       cor: 'ceu',
     },
   ],

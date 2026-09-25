@@ -19,25 +19,32 @@ const CORES_BENTO = [
   'var(--color-baby)',
   'var(--color-gema)',
   'var(--color-ceu)',
-  'var(--color-baby)',
-  'var(--color-menta)',
 ]
+
+/*
+ * Foto do cartão grande (faz de conta / leitura). Todas as fotos de leitura
+ * que existem têm educadora, e parte da equipe saiu: sem foto confirmada, o
+ * cartão fica laranja, só com o selo.
+ */
+const FOTO_DESTAQUE: { src: string; alt: string; pos: string } | null = null
 
 /*
  * 01 abertura     E03  split 7/5: texto grande + foto em mancha
  * 02 manifesto    E18  texto corrido max-720 + frase em faixa menta
- * 03 dia a dia    E07  bento: horta grande com foto + 5 cartões de cor
- * 04 contraste    E11  split 50/50: no Ateliê x modelo tradicional
+ * 03 dia a dia    E07  bento: faz de conta grande (foto ou selo) + 4 cartões de cor
+ * 04 contraste    E11  split 50/50: aqui no Ateliê (✓) x outros lugares (✕)
  * 05 visita       E17  bloco violeta com formulário
  */
 export default function PropostaPage() {
-  const [horta, ...resto] = proposta.diaADia.itens
+  const [principal, ...resto] = proposta.diaADia.itens
   return (
     <>
       <section className="pt-8 pb-16 md:pt-14 md:pb-24">
         <Container className="grid items-center gap-10 md:grid-cols-12">
           <div className="md:col-span-7">
-            <h1 className="text-display max-w-[12ch]">{proposta.hero.titulo}</h1>
+            <h1 className="text-display max-w-[15ch] [text-wrap:balance]">
+              {proposta.hero.titulo}
+            </h1>
             <p className="mt-6 max-w-[46ch] text-[var(--color-ink-soft)] text-lg md:text-xl">
               {proposta.hero.apoio}
             </p>
@@ -86,19 +93,26 @@ export default function PropostaPage() {
         <Container>
           <SlideUp className="text-h1 mb-10 max-w-[14ch]">{proposta.diaADia.titulo}</SlideUp>
           <div className="grid gap-4 md:grid-cols-3 md:grid-rows-2">
-            <Reveal className="relative overflow-hidden rounded-[var(--radius-card)] md:row-span-2">
+            <Reveal className="relative overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-mecanica)] md:row-span-2">
               <div className="relative aspect-[4/5] md:absolute md:inset-0 md:aspect-auto">
-                <Image
-                  src="/fotos/horta.jpg"
-                  alt="Duas crianças agachadas plantando na terra da horta"
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover object-[50%_45%]"
-                />
+                {FOTO_DESTAQUE ? (
+                  <Image
+                    src={FOTO_DESTAQUE.src}
+                    alt={FOTO_DESTAQUE.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                    style={{ objectPosition: FOTO_DESTAQUE.pos }}
+                  />
+                ) : (
+                  <div aria-hidden className="absolute inset-0 grid place-items-center pb-32">
+                    <SeloGirando className="w-36 md:w-44" />
+                  </div>
+                )}
               </div>
               <div className="absolute inset-x-3 bottom-3 rounded-[20px] bg-white p-5">
-                <h3 className="font-extrabold text-2xl">{horta.titulo}</h3>
-                <p className="mt-1 text-[var(--color-ink-soft)]">{horta.texto}</p>
+                <h3 className="font-extrabold text-2xl">{principal.titulo}</h3>
+                <p className="mt-1 text-[var(--color-ink-soft)]">{principal.texto}</p>
               </div>
             </Reveal>
             <ul className="grid gap-4 sm:grid-cols-2 md:col-span-2 md:row-span-2">
@@ -113,12 +127,6 @@ export default function PropostaPage() {
                   </div>
                 </Reveal>
               ))}
-              <li
-                aria-hidden="true"
-                className="hidden place-items-center rounded-[var(--radius-card)] bg-[var(--color-gema)] p-6 sm:grid"
-              >
-                <SeloGirando className="w-32 md:w-36" />
-              </li>
             </ul>
           </div>
         </Container>
@@ -126,7 +134,10 @@ export default function PropostaPage() {
 
       <section className="pb-8 md:pb-12">
         <Container>
-          <SlideUp className="text-h1 mb-10 max-w-[16ch]">{proposta.contraste.titulo}</SlideUp>
+          <SlideUp className="text-h1 max-w-[16ch]">{proposta.contraste.titulo}</SlideUp>
+          <p className="mt-5 mb-10 max-w-[46ch] text-[var(--color-ink-soft)] text-lg md:text-xl">
+            {proposta.contraste.apoio}
+          </p>
           <div className="grid overflow-hidden rounded-[var(--radius-card)] md:grid-cols-2">
             <div className="bg-[var(--color-gema)] p-8 text-[var(--color-ink)] md:p-12">
               <h3 className="font-extrabold text-3xl text-[var(--color-ink)]">
@@ -137,14 +148,16 @@ export default function PropostaPage() {
                   <li key={t} className="flex gap-3">
                     <span
                       aria-hidden
-                      className="mt-2 size-3 shrink-0 rounded-full bg-[var(--color-violeta)]"
-                    />
+                      className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-[var(--color-violeta)] font-extrabold text-sm text-white"
+                    >
+                      ✓
+                    </span>
                     {t}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-white p-8 md:p-12">
+            <div className="bg-[var(--color-rule)] p-8 md:p-12">
               <h3 className="font-extrabold text-3xl text-[var(--color-ink-soft)]">
                 {proposta.contraste.nao.titulo}
               </h3>
@@ -153,8 +166,10 @@ export default function PropostaPage() {
                   <li key={t} className="flex gap-3">
                     <span
                       aria-hidden
-                      className="mt-2 size-3 shrink-0 rounded-full border-2 border-[var(--color-ink-soft)]"
-                    />
+                      className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full border-2 border-[var(--color-ink-soft)] font-extrabold text-sm"
+                    >
+                      ✕
+                    </span>
                     {t}
                   </li>
                 ))}
