@@ -22,7 +22,7 @@ export const FOTOS_ROTINA = [
   },
   {
     src: '/fotos/horta.jpg',
-    alt: 'Duas crianças agachadas plantando na terra da horta',
+    alt: 'Duas crianças agachadas brincando na terra',
     pos: '50% 45%',
     legenda: L.horta,
   },

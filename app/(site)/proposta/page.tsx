@@ -22,11 +22,15 @@ const CORES_BENTO = [
 ]
 
 /*
- * Foto do cartão grande (faz de conta / leitura). Todas as fotos de leitura
- * que existem têm educadora, e parte da equipe saiu: sem foto confirmada, o
- * cartão fica laranja, só com o selo.
+ * Foto do cartão grande (faz de conta). Vem da tarefa "Foto - historinha" do
+ * ClickUp (86b467h4p, contação com fantoche): sem educadora no quadro, porque
+ * parte da equipe saiu. Sem foto (null), o cartão fica laranja, só com o selo.
  */
-const FOTO_DESTAQUE: { src: string; alt: string; pos: string } | null = null
+const FOTO_DESTAQUE: { src: string; alt: string; pos: string } | null = {
+  src: '/fotos/fantoche.jpg',
+  alt: 'Menina sorrindo de pé no tapete colorido, diante de um fantoche de lobo',
+  pos: '55% 30%',
+}
 
 /*
  * 01 abertura     E03  split 7/5: texto grande + foto em mancha

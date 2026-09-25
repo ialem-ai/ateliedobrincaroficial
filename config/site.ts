@@ -15,7 +15,7 @@ export const site = {
   cnpj: '27.902.614/0001-15',
   title: 'Ateliê do Brincar · Desenvolvimento infantil em Ji-Paraná',
   description:
-    'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná/RO. Brincar livre, ambientes por atividade, horta e muito tempo ao ar livre.',
+    'Espaço de desenvolvimento infantil para crianças de 6 meses a 3 anos em Ji-Paraná/RO. Brincar livre, ambientes por atividade e muito tempo ao ar livre.',
 
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.ateliedobrincaroficial.com.br',
   lpPath: '/visita',

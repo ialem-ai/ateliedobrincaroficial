@@ -9,7 +9,7 @@ import { lp } from '@/lib/content/copy'
 
 /**
  * GANCHO · faixa que chama o público pelo nome, manchete que promete ver antes
- * de decidir, um CTA. Foto da horta em mancha (a de fruta no quintal saiu: a educadora não está mais no time),
+ * de decidir, um CTA. Foto das crianças na terra em mancha (a de fruta no quintal saiu: a educadora não está mais no time),
  * diferente do topo da home.
  */
 export function LpHero() {
@@ -60,7 +60,7 @@ export function LpHero() {
           <div className="mancha-2 absolute inset-[2%_6%_8%_2%] overflow-hidden">
             <Image
               src="/fotos/horta.jpg"
-              alt="Menino e menina agachados na terra da horta, plantando"
+              alt="Menino e menina agachados brincando na terra"
               fill
               priority
               sizes="(min-width: 768px) 46vw, 92vw"

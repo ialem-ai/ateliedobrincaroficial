@@ -33,12 +33,11 @@ export const home = {
     selo: 'Vagas abertas o ano todo',
   },
 
-  // [ig] projetos de junho e julho, [ficha] horta, música (inglês saiu a pedido do cliente, 25/09)
+  // [ig] projetos de junho e julho, [ficha] música (inglês e horta saíram a pedido do cliente, 25/09)
   palavras: [
     'tinta',
     'terra',
     'minhocário',
-    'horta',
     'bacia de água',
     'música',
     'fruta no quintal',
@@ -83,7 +82,7 @@ export const home = {
     titulo: 'As turmas',
     // ajustes do cliente, 24/09/2026 (entrou o Maternal III)
     itens: [
-      { nome: 'Berçário', faixa: '6 meses a 1 ano' },
+      { nome: 'Berçário', faixa: '6 meses a 11 meses' },
       { nome: 'Maternal I', faixa: '1 ano a 1 ano e 11 meses' },
       { nome: 'Maternal II', faixa: '2 anos a 2 anos e 11 meses' },
       { nome: 'Maternal III', faixa: '3 anos a 3 anos e 11 meses' },
@@ -100,7 +99,7 @@ export const home = {
     legendas: {
       minhocario: 'Minhocário',
       esponja: 'Pintura com esponja',
-      horta: 'Horta',
+      horta: 'Mão na terra',
       bacia: 'Explorando a colmeia',
       boliche: 'Boliche das Emoções',
       tintaVerde: 'A tinta que vem do verde',
@@ -144,7 +143,7 @@ export const proposta = {
   manifesto: [
     'Numa manhã comum, uma criança fica na bacia de água enquanto a do lado pinta com esponja. Cada uma termina quando termina.',
     'Antes da turma chegar, as educadoras deixam o espaço pronto: tinta, terra, água, brinquedos de encaixe. Depois observam o que chamou a atenção de cada criança.',
-    'No meio disso tem fruta no quintal, roda de música e visita à horta.',
+    'No meio disso tem fruta no quintal e roda de música.',
   ],
   destaque: 'Por aqui, a curiosidade é quem dá o primeiro passo.',
   diaADia: {
@@ -153,7 +152,7 @@ export const proposta = {
       // o primeiro item ganha o cartão grande com foto (ajustes 25/09: faz de conta no lugar da horta)
       {
         titulo: 'Faz de conta',
-        texto: 'Roda de história, livro aberto no chão e personagem inventado na hora.',
+        texto: 'Roda de história, fantoche na mão e personagem inventado na hora.',
       },
       {
         titulo: 'Tinta, terra e água',
@@ -207,7 +206,7 @@ export const turmas = {
   itens: [
     {
       nome: 'Berçário',
-      faixa: '6 meses a 1 ano',
+      faixa: '6 meses a 11 meses',
       destaque: 'Cada movimento é uma descoberta.',
       texto:
         'Rolar, alcançar, engatinhar, levantar, dar os primeiros passos... No Berçário, o bebê encontra um ambiente preparado para explorar livremente, desenvolver seus movimentos e conquistar novas descobertas no seu próprio ritmo.',
@@ -258,7 +257,7 @@ export const form = {
   idade: 'Idade da criança',
   idades: [
     'Menos de 6 meses',
-    '6 meses a 1 ano',
+    '6 meses a 11 meses',
     '1 ano a 1 ano e 11 meses',
     '2 anos a 2 anos e 11 meses',
     '3 anos a 3 anos e 11 meses',
@@ -334,7 +333,7 @@ export const lp = {
       {
         pergunta: 'Meu filho não é pequeno demais?',
         resposta:
-          'A partir do Berçário, o convívio com outras crianças e os estímulos certos já fazem diferença no desenvolvimento. Os bebês ficam numa turma só deles, de 6 meses a 1 ano.',
+          'A partir do Berçário, o convívio com outras crianças e os estímulos certos já fazem diferença no desenvolvimento. Os bebês ficam numa turma só deles, de 6 meses a 11 meses.',
         foto: '/fotos/boliche.jpg',
         alt: 'Bebê sentado na grama segurando pinos coloridos de boliche',
         pos: '50% 55%',
@@ -353,7 +352,7 @@ export const lp = {
       {
         pergunta: 'O Ateliê é escola ou creche?',
         resposta:
-          'Nenhum dos dois. É um espaço de desenvolvimento infantil, com ambientes separados por atividade. Horta, tinta, lama e música entram na rotina com um propósito, e a criança aprende com o ambiente, não só com a professora.',
+          'Nenhum dos dois. É um espaço de desenvolvimento infantil, com ambientes separados por atividade. Tinta, lama e música entram na rotina com um propósito, e a criança aprende com o ambiente, não só com a professora.',
         foto: '/fotos/minhocario.jpg',
         alt: 'Duas meninas rindo sentadas na grama, com um minhocário de terra na frente',
         pos: '50% 60%',
@@ -376,7 +375,7 @@ export const lp = {
       },
       {
         titulo: 'Você conhece o Ateliê por dentro',
-        texto: 'As salas de cada turma, o quintal, a horta e a rotina funcionando.',
+        texto: 'As salas de cada turma, o quintal e a rotina funcionando.',
       },
       {
         titulo: 'Tira todas as dúvidas',
