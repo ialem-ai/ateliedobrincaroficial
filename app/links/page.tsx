@@ -43,8 +43,8 @@ const LINKS = [
   {
     ...endereco,
     href: site.mapsUrl,
-    foto: '/fotos/novo-espaco.jpg',
-    pos: '60% 50%',
+    foto: '/fotos/fachada.jpg',
+    pos: '0% 55%',
     cor: 'var(--color-ceu)',
   },
 ]

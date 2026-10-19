@@ -8,7 +8,8 @@ import { home } from '@/lib/content/copy'
 
 /**
  * E03 · split 7/5 contrastado: foto da casa à esquerda, texto num bloco
- * Amarelo Gema à direita. A foto tem 1280x720 (WhatsApp): exibida contida.
+ * Amarelo Gema à direita. Foto: fachada depois da reforma e do jardim
+ * (enviada pela Ana Flávia em 16/10), 1600x1200.
  */
 export function NovoEspaco() {
   const c = home.novoEspaco
@@ -18,11 +19,11 @@ export function NovoEspaco() {
         <div className="grid items-stretch overflow-hidden rounded-[var(--radius-card)] md:grid-cols-12">
           <div className="relative aspect-[16/10] md:col-span-7 md:aspect-auto md:min-h-[440px]">
             <Image
-              src="/fotos/novo-espaco.jpg"
-              alt="Casa térrea branca da nova unidade do Ateliê, com gramado amplo na frente"
+              src="/fotos/fachada.jpg"
+              alt="Fachada do Ateliê do Brincar na Rua Mato Grosso, com muro colorido, jardim e a frase Pelo Brincar, formamos o futuro"
               fill
               sizes="(min-width: 768px) 58vw, 100vw"
-              className="object-cover object-[60%_50%]"
+              className="object-cover object-[25%_45%]"
             />
           </div>
           <div className="bg-[var(--color-gema)] px-6 py-10 text-[var(--color-ink)] md:col-span-5 md:px-10 md:py-12">

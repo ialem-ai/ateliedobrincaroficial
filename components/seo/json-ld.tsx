@@ -14,7 +14,7 @@ export function OrganizationJsonLd() {
     legalName: site.legalName,
     url: site.url,
     logo: `${site.url}/brand/logo-principal.png`,
-    image: [`${site.url}/fotos/tinta-azul.jpg`, `${site.url}/fotos/novo-espaco.jpg`],
+    image: [`${site.url}/fotos/tinta-azul.jpg`, `${site.url}/fotos/fachada.jpg`],
     description: site.description,
     telephone: '+556934222382',
     email: site.email,
